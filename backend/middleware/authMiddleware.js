@@ -1,7 +1,4 @@
-// Author: Himanshu Tripathi
-// Department: AI and DS
-// Description: Secure JWT Verification and Tenant Isolation Middleware
-
+// Secure JWT Verification and Tenant Isolation Middleware
 const jwt = require('jsonwebtoken');
 
 /**
@@ -11,27 +8,13 @@ const jwt = require('jsonwebtoken');
 const protect = async (req, res, next) => {
     let token;
 
-    // Authorization header check
     if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
         try {
             token = req.headers.authorization.split(' ')[1];
 
-            // DEV BYPASS: Sirf local development ke liye
-            if (token.startsWith('SESSION_JWT_NODE_VECTOR_')) {
-                req.user = {
-                    id: "dev-admin-123",
-                    role: "super-admin",
-                    email: "admin@smartcampus.edu",
-                    tenantId: "GLOBAL-MASTER"
-                };
-                return next();
-            }
-
-            // Production Security Check
-            const secret = process.env.JWT_SECRET;
-            if (!secret) {
-                return res.status(500).json({ success: false, message: 'Server Security Configuration Error' });
-            }
+            // 🔥 FIX: Secret wahi use karo jo controller me token banate waqt use hua tha
+            // Agar .env me JWT_SECRET nahi hai, toh ye default string use karega
+            const secret = process.env.JWT_SECRET || 'SESSION_JWT_NODE_VECTOR_TEST_CLUSTER-AI-DS';
 
             // Token Verify karna
             const decoded = jwt.verify(token, secret);
@@ -46,11 +29,12 @@ const protect = async (req, res, next) => {
                 id: decoded.id,
                 role: decoded.role ? decoded.role.toLowerCase().trim() : '',
                 email: decoded.email ? decoded.email.toLowerCase().trim() : '',
-                tenantId: decoded.tenantId.toUpperCase().trim()
+                tenantId: decoded.tenantId.trim() // 🔥 FIX: toUpperCase() hata diya taaki mapping sahi rahe
             };
 
             next();
         } catch (error) {
+            console.error("Token Verification Error:", error.message);
             return res.status(401).json({ success: false, message: 'Access Denied: Invalid or Expired Token' });
         }
     } else {

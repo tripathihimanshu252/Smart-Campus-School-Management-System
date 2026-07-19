@@ -1,7 +1,7 @@
 // Author: Himanshu Tripathi
 // Department: AI and DS
 
-const Fleet = require('../models/fleet'); // Dhyan rakhna file ka naam fleet.js hai toh small mein hi rahe
+const Fleet = require('../models/Fleet'); // 🔥 CAPITAL 'F' FIX FOR RENDER LINUX
 
 // 1. Get all buses for a specific tenant (Reception/Admin ke Dashboard ke liye)
 const getAllFleets = async (req, res) => {

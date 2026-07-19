@@ -373,7 +373,7 @@ const DataRecovery = () => {
 };
 
 // =========================================================================
-// 6. MAIN SUPER ADMIN DASHBOARD COMPONENT (FIXED FALLBACK VALUES)
+// 6. MAIN SUPER ADMIN DASHBOARD COMPONENT
 // =========================================================================
 const SuperAdminDashboard = () => {
   const [instName, setInstName] = useState(''); 
@@ -394,13 +394,10 @@ const SuperAdminDashboard = () => {
           ...t, id: t._id, code: t.tenantCode,
           directorEmail: t.directorDetails?.email || 'N/A',
           directorPassword: t.directorDetails?.password || 'N/A',
-          
-          // 🔥 Yahan 15 aur 5 hardcoded tha. Ab backend data dega toh theek, warna 0 dikhega!
           stats: { 
             teachers: t.stats?.teachers || 0, 
             students: t.stats?.students || 0 
           }, 
-          
           billing: t.billing || { plan: 'Premium Academic Suite', amount: '₹25,000/mo', status: 'Paid' }, 
           security: t.security || { load: '12%', sessions: 8, lastBackup: 'Just Now', status: 'Optimal' } 
         })));
@@ -429,14 +426,22 @@ const SuperAdminDashboard = () => {
     }
   };
 
+  // 🔥 YAHAN PAR TOKEN FIX ADD KIYA GAYA HAI 🔥
   const handleDecommission = async (id, code) => {
     if(window.confirm(`Delete ${code}?`)){
       toast.loading("Decommissioning node...", { id: 'del-toast' });
       try {
-        await axios.delete(`https://smart-campus-school-management-system-1.onrender.com/api/superadmin/decommission/${id}`); 
+        const token = localStorage.getItem('userToken'); // Token fetch kar rahe hain
+        await axios.delete(`https://smart-campus-school-management-system-1.onrender.com/api/superadmin/decommission/${id}`, {
+          headers: {
+            Authorization: `Bearer ${token}` // Token bhej rahe hain
+          }
+        }); 
         toast.success(`${code} removed completely.`, { id: 'del-toast' });
         fetchLiveDatabaseMetrics();
-      } catch (err) { toast.error("Failed to delete", { id: 'del-toast' }); }
+      } catch (err) { 
+        toast.error("Failed to delete", { id: 'del-toast' }); 
+      }
     }
   };
 

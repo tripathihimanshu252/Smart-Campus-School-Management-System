@@ -1,7 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api';
+
+const API_URL = 'https://smart-campus-school-management-system-1.onrender.com/api';
 
 // --- HELPER FUNCTION ---
 const getAuthConfigHeaders = () => {

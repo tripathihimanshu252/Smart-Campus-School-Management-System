@@ -1,7 +1,7 @@
 // Author: Himanshu Tripathi
 // Department: AI and DS
 
-const Faculty = require('../models/faculty'); 
+const Faculty = require('../models/Faculty'); // 🔥 CAPITAL 'F' FIX FOR RENDER LINUX
 const jwt = require('jsonwebtoken');
 
 // 1. GATEWAY LOGIN (Updated for Role-Based Isolation)
@@ -113,7 +113,6 @@ const registerDirector = async (req, res) => {
     }
 };
 
-// 3. STAFF REGISTRATION (Updated with Support Staff Logic)
 // 3. STAFF REGISTRATION (Updated with Case-Sensitivity Fix)
 const registerStaff = async (req, res) => { 
     try {

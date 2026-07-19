@@ -1,8 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-
-const API_URL = 'https://smart-campus-school-management-system-1.onrender.com/api';
+// 🔥 PRODUCTION FIX: Vite environment variable ko prioritize kiya gaya hai
+const API_URL = import.meta.env.VITE_API_URL || 'https://smart-campus-school-management-system-1.onrender.com/api';
 
 // --- HELPER FUNCTION ---
 const getAuthConfigHeaders = () => {
@@ -40,13 +40,10 @@ export const fetchFleets = createAsyncThunk('auth/fetchFleets', async (tenantId,
   }
 });
 
-// 🔥 FIX: Faculties ko Redux aur LocalStorage dono mein sync karo taaki "Registry Empty" na aaye
 export const fetchFaculties = createAsyncThunk('auth/fetchFaculties', async (tenantId, { rejectWithValue }) => {
   try {
     const activeTenant = tenantId || localStorage.getItem('activeSchoolId') || 'CLUSTER-AI-DS';
     const response = await axios.get(`${API_URL}/admin/faculties?tenantId=${activeTenant}`, getAuthConfigHeaders());
-    
-    // LocalStorage mein save kar rahe hain taaki refresh par jaldi load ho
     localStorage.setItem(`faculties_${activeTenant}`, JSON.stringify(response.data.data));
     return response.data.data;
   } catch (err) {
@@ -127,7 +124,6 @@ export const fetchParentWardData = createAsyncThunk('auth/fetchParentWardData', 
 });
 
 // --- 2. INITIAL STATE ---
-// 🔥 FIX: Faculties ko initialize karo localStorage se (taaki reload pe jaldi dikhe)
 const activeTenant = localStorage.getItem('activeSchoolId') || localStorage.getItem('tenantMapping') || null;
 const cachedFaculties = activeTenant ? JSON.parse(localStorage.getItem(`faculties_${activeTenant}`) || "[]") : [];
 
@@ -142,7 +138,7 @@ const initialState = {
   schoolId: activeTenant,
   students: [], 
   fleetList: [], 
-  faculties: cachedFaculties, // 🔥 Yahan add kiya
+  faculties: cachedFaculties,
   currentWard: null, 
   status: 'idle'
 };
@@ -179,7 +175,7 @@ const authSlice = createSlice({
       state.currentWard = null;
       state.students = [];
       state.fleetList = [];
-      state.faculties = []; // 🔥 Logout pe clear karo
+      state.faculties = [];
     }
   },
   extraReducers: (builder) => {
@@ -191,7 +187,7 @@ const authSlice = createSlice({
         state.fleetList = action.payload || [];
       })
       .addCase(fetchFaculties.fulfilled, (state, action) => {
-        state.faculties = action.payload || []; // 🔥 API se data aane pe update
+        state.faculties = action.payload || [];
       })
       .addCase(registerStaffDB.fulfilled, (state, action) => {
         if (action.payload) {

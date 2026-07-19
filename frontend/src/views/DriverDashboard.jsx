@@ -55,7 +55,7 @@ const DriverDashboard = () => {
         passengers: passengers
       };
 
-      await axios.put('http://localhost:5000/api/fleets/location', payload, {
+      await axios.put('https://smart-campus-school-management-system-1.onrender.com/api/fleets/location', payload, {
         headers: { Authorization: `Bearer ${token}` }
       });
     } catch (error) {

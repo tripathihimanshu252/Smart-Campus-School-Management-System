@@ -38,7 +38,7 @@ const StudentFees = () => {
 
   useEffect(() => {
     const token = localStorage.getItem('userToken');
-    axios.get('http://localhost:5000/api/principal/students', { 
+    axios.get('https://smart-campus-school-management-system-1.onrender.com/api/principal/students', { 
       headers: { Authorization: `Bearer ${token}` } 
     })
     .then(res => { setStudents(res.data?.data || []); setLoading(false); })
@@ -50,7 +50,7 @@ const StudentFees = () => {
     const amount = prompt("Enter fee payment amount (₹):", "145000");
     if(!amount) return;
 
-    axios.put(`http://localhost:5000/api/accountant/fees/update/${id}`, 
+    axios.put(`https://smart-campus-school-management-system-1.onrender.com/api/accountant/fees/update/${id}`, 
       { amount: Number(amount) }, 
       { headers: { Authorization: `Bearer ${token}` } }
     )
@@ -412,7 +412,7 @@ const SalaryManagement = () => {
 
   useEffect(() => {
     const token = localStorage.getItem('userToken');
-    axios.get('http://localhost:5000/api/principal/teachers', { 
+    axios.get('https://smart-campus-school-management-system-1.onrender.com/api/principal/teachers', { 
       headers: { Authorization: `Bearer ${token}` } 
     })
     .then(res => setFaculty(res.data?.data || []))

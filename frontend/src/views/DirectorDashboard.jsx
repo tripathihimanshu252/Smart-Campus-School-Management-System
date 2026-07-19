@@ -49,8 +49,8 @@ const DirectorHomeOverview = () => {
       const config = { headers: { Authorization: `Bearer ${token}` } };
 
       const [studentRes, staffRes] = await Promise.all([
-        axios.get('http://localhost:5000/api/students', config).catch(() => ({ data: { data: [] } })),
-        axios.get('http://localhost:5000/api/admin/faculties', config).catch(() => ({ data: { data: [] } }))
+        axios.get('https://smart-campus-school-management-system-1.onrender.com/api/students', config).catch(() => ({ data: { data: [] } })),
+        axios.get('https://smart-campus-school-management-system-1.onrender.com/api/admin/faculties', config).catch(() => ({ data: { data: [] } }))
       ]);
 
       const students = studentRes.data.data || [];
@@ -192,7 +192,7 @@ const DirectorStaffManagement = () => {
   const fetchStaff = async () => {
     try {
       const token = localStorage.getItem('userToken');
-      const res = await axios.get('http://localhost:5000/api/admin/faculties', {
+      const res = await axios.get('https://smart-campus-school-management-system-1.onrender.com/api/admin/faculties', {
         headers: { Authorization: `Bearer ${token}` }
       });
       if (res.data.success) setStaffList(res.data.data);
@@ -218,7 +218,7 @@ const DirectorStaffManagement = () => {
         assignedRoute: isDriver ? newStaff.assignedRoute : '' 
       };
 
-      const res = await axios.post('http://localhost:5000/api/admin/register-staff', finalPayload, {
+      const res = await axios.post('https://smart-campus-school-management-system-1.onrender.com/api/admin/register-staff', finalPayload, {
         headers: { Authorization: `Bearer ${token}` }
       });
 
@@ -243,7 +243,7 @@ const DirectorStaffManagement = () => {
     if (isConfirmed) {
       try {
         const token = localStorage.getItem('userToken');
-        const res = await axios.delete(`http://localhost:5000/api/admin/faculty/${staffId}`, {
+        const res = await axios.delete(`https://smart-campus-school-management-system-1.onrender.com/api/admin/faculty/${staffId}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         

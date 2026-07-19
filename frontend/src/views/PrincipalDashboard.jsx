@@ -35,7 +35,7 @@ const Overview = () => {
 
       // 1. Fetch Students
       try {
-        const stuRes = await axios.get('http://localhost:5000/api/principal/students', { headers });
+        const stuRes = await axios.get('https://smart-campus-school-management-system-1.onrender.com/api/principal/students', { headers });
         studentCount = stuRes.data?.data?.length || 0;
       } catch (error) { 
         console.error("Student fetch error"); 
@@ -43,7 +43,7 @@ const Overview = () => {
 
       // 2. Fetch Faculty (With Smart Fallback for Deployment)
       try {
-        const teachRes = await axios.get('http://localhost:5000/api/principal/teachers', { headers });
+        const teachRes = await axios.get('https://smart-campus-school-management-system-1.onrender.com/api/principal/teachers', { headers });
         let staffList = teachRes.data?.data || [];
         
         facultyCount = staffList.length;
@@ -98,7 +98,7 @@ const StudentManagementReal = () => {
 
   useEffect(() => {
     const token = localStorage.getItem('token') || localStorage.getItem('userToken');
-    axios.get('http://localhost:5000/api/principal/students', { headers: { Authorization: `Bearer ${token}` } })
+    axios.get('https://smart-campus-school-management-system-1.onrender.com/api/principal/students', { headers: { Authorization: `Bearer ${token}` } })
       .then(res => { setStudents(res.data?.data || []); setLoading(false); })
       .catch(err => { console.error(err); setLoading(false); });
   }, []);
@@ -145,7 +145,7 @@ const TeacherManagementReal = () => {
       const token = localStorage.getItem('token') || localStorage.getItem('userToken');
       const headers = { Authorization: `Bearer ${token}` };
       try {
-        let res = await axios.get('http://localhost:5000/api/principal/teachers', { headers });
+        let res = await axios.get('https://smart-campus-school-management-system-1.onrender.com/api/principal/teachers', { headers });
         let staffList = res.data?.data || [];
         
         // 🔥 FRONTEND RESCUE: Agar list empty hai, show real-looking data
@@ -210,7 +210,7 @@ const AssignClassTeacher = () => {
       const token = localStorage.getItem('token') || localStorage.getItem('userToken');
       const headers = { Authorization: `Bearer ${token}` };
       try {
-        let res = await axios.get('http://localhost:5000/api/principal/teachers', { headers });
+        let res = await axios.get('https://smart-campus-school-management-system-1.onrender.com/api/principal/teachers', { headers });
         let staffList = res.data?.data || [];
         
         if (staffList.length === 0) {

@@ -388,7 +388,7 @@ const SuperAdminDashboard = () => {
 
   const fetchLiveDatabaseMetrics = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/superadmin/dashboard-metrics');
+      const response = await axios.get('https://smart-campus-school-management-system-1.onrender.com/api/superadmin/dashboard-metrics');
       if (response.data && response.data.data) {
         setTenants(response.data.data.map(t => ({ 
           ...t, id: t._id, code: t.tenantCode,
@@ -420,7 +420,7 @@ const SuperAdminDashboard = () => {
         name: instName, tenantCode, directorName, directorEmail,      
         directorPassword: directorPassword.split('Test@123')[0] || directorPassword 
       };
-      await axios.post('http://localhost:5000/api/superadmin/provision-tenant', payload);
+      await axios.post('https://smart-campus-school-management-system-1.onrender.com/api/superadmin/provision-tenant', payload);
       toast.success('Success! Campus Profile Created.', { id: 'deploy-toast' }); 
       setInstName(''); setTenantCode(''); setDirectorName(''); setDirectorEmail(''); setDirectorPassword('');
       fetchLiveDatabaseMetrics();
@@ -433,7 +433,7 @@ const SuperAdminDashboard = () => {
     if(window.confirm(`Delete ${code}?`)){
       toast.loading("Decommissioning node...", { id: 'del-toast' });
       try {
-        await axios.delete(`http://localhost:5000/api/superadmin/decommission/${id}`); 
+        await axios.delete(`https://smart-campus-school-management-system-1.onrender.com/api/superadmin/decommission/${id}`); 
         toast.success(`${code} removed completely.`, { id: 'del-toast' });
         fetchLiveDatabaseMetrics();
       } catch (err) { toast.error("Failed to delete", { id: 'del-toast' }); }
@@ -447,7 +447,7 @@ const SuperAdminDashboard = () => {
     e.preventDefault();
     toast.loading("Broadcasting notice...", { id: 'broadcast-toast' });
     try {
-      await axios.post('http://localhost:5000/api/superadmin/broadcast-alert', {alertSubject, alertContent});
+      await axios.post('https://smart-campus-school-management-system-1.onrender.com/api/superadmin/broadcast-alert', {alertSubject, alertContent});
       toast.success('Notice Sent to all campuses!', { id: 'broadcast-toast' }); 
       setAlertSubject(''); setAlertContent('');
     } catch (err) { toast.error("Broadcast failed", { id: 'broadcast-toast' }); }

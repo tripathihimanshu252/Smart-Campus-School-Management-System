@@ -27,7 +27,7 @@ const FacultyDashboard = () => {
       try {
         const token = localStorage.getItem('userToken');
         // Backend API ko hit karega jo sirf is tenant (school) ke students layega
-        const res = await axios.get('http://localhost:5000/api/students', {
+        const res = await axios.get('https://smart-campus-school-management-system-1.onrender.com/api/students', {
           headers: { Authorization: `Bearer ${token}` }
         });
         
@@ -108,7 +108,7 @@ const FacultyDashboard = () => {
     try {
       const token = localStorage.getItem('userToken');
       // Sending bulk data to backend to update records globally
-      await axios.put('http://localhost:5000/api/students/attendance', { rosterData: students }, {
+      await axios.put('https://smart-campus-school-management-system-1.onrender.com/api/students/attendance', { rosterData: students }, {
         headers: { Authorization: `Bearer ${token}` }
       });
       window.alert(`✅ SUCCESS: [${activeTenantId.toUpperCase()}] Classroom telemetry metrics persisted successfully to Global DB.`);

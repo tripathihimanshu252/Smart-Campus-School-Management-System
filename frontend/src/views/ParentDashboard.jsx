@@ -34,13 +34,13 @@ const ParentDashboard = () => {
       const headers = { Authorization: token ? `Bearer ${token}` : '' };
 
       // 1. Fetch Ward Academic & Fee Data
-      const studentRes = await axios.get(`http://localhost:5000/api/parent/my-child/${parentEmail}`, { headers });
+      const studentRes = await axios.get(`https://smart-campus-school-management-system-1.onrender.com/api/parent/my-child/${parentEmail}`, { headers });
       if (studentRes.data.success) {
         setWardData(studentRes.data.data);
       }
 
       // 2. Fetch Live Fleet/Bus Telemetry
-      const fleetRes = await axios.get('http://localhost:5000/api/fleets', { headers });
+      const fleetRes = await axios.get('https://smart-campus-school-management-system-1.onrender.com/api/fleets', { headers });
       if (fleetRes.data.success && fleetRes.data.data.length > 0) {
         // Assuming first bus for demo, or filter by tenantId if available
         const activeBus = fleetRes.data.data[0]; 
@@ -90,7 +90,7 @@ const ParentDashboard = () => {
     try {
       const token = localStorage.getItem('userToken');
       const response = await axios.put(
-        'http://localhost:5000/api/parent/submit-payment',
+        'https://smart-campus-school-management-system-1.onrender.com/api/parent/submit-payment',
         { parentEmail: parentEmail, paymentAmount: deductValue },
         { headers: { Authorization: token ? `Bearer ${token}` : '' } }
       );

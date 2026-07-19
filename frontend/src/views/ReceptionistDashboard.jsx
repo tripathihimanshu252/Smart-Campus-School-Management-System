@@ -105,7 +105,7 @@ const NewAdmission = () => {
         branch: "AI and DS"
       };
 
-      await axios.post('http://localhost:5000/api/receptionist/new-admission', payload, {
+      await axios.post('https://smart-campus-school-management-system-1.onrender.com/api/receptionist/new-admission', payload, {
         headers: { Authorization: `Bearer ${token}` }
       });
 

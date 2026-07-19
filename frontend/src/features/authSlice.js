@@ -1,8 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-// 🔥 PRODUCTION FIX: Vite environment variable ko prioritize kiya gaya hai
-const API_URL = import.meta.env.VITE_API_URL || 'https://smart-campus-school-management-system-1.onrender.com/api';
+// 🔥 FINAL FIX: Seedha Render ka URL daal diya hai, ab localhost ka koi chakkar nahi hoga.
+const API_URL = 'https://smart-campus-school-management-system-1.onrender.com/api';
 
 // --- HELPER FUNCTION ---
 const getAuthConfigHeaders = () => {

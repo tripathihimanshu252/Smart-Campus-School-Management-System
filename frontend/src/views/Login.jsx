@@ -28,8 +28,8 @@ const Login = () => {
     const normalizedTenant = (tenantId || '').trim();
 
     try {
-      // 🚀 ACTUAL BACKEND API CALL
-      const response = await axios.post('http://localhost:5000/api/auth/login', {
+      // 🚀 ACTUAL BACKEND API CALL - LOCALHOST REMOVED, RENDER URL ADDED
+      const response = await axios.post('https://smart-campus-school-management-system-1.onrender.com/api/auth/login', {
         email: normalizedEmail,
         password,
         tenantId: normalizedTenant
@@ -132,7 +132,6 @@ const Login = () => {
                     value={tenantId}
                     onChange={(event) => setTenantId(event.target.value)}
                     placeholder="e.g. LLOYD-505"
-                    /* 🔥 Updated font weight from font-bold to font-medium */
                     className="w-full bg-transparent text-sm text-slate-700 font-medium outline-none uppercase placeholder:normal-case placeholder:font-normal placeholder:text-slate-400"
                     required
                   />
@@ -149,7 +148,6 @@ const Login = () => {
                     value={email}
                     onChange={(event) => setEmail(event.target.value)}
                     placeholder="name@campus.edu"
-                    /* 🔥 Updated font weight from font-semibold to font-medium */
                     className="w-full bg-transparent text-sm text-slate-700 font-medium outline-none placeholder:font-normal placeholder:text-slate-400"
                     required
                   />
@@ -166,7 +164,6 @@ const Login = () => {
                     value={password}
                     onChange={(event) => setPassword(event.target.value)}
                     placeholder="••••••••"
-                    /* 🔥 Updated font weight from font-semibold to font-medium */
                     className="w-full bg-transparent text-sm text-slate-700 font-medium outline-none placeholder:font-normal placeholder:text-slate-400"
                     required
                   />

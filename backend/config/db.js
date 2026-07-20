@@ -4,17 +4,16 @@ const connectDB = async () => {
     try {
         console.log("⏳ Connecting to Database Pool Shard...");
         
-        // Configuration options handle heavy concurrent school ERP requests securely
         const enterprisePoolOptions = {
-            maxPoolSize: 50,           // Allows up to 50 concurrent sockets per shard cluster
-            minPoolSize: 10,           // Maintains at least 10 active connections in hot state
-            socketTimeoutMS: 45000,    // Drops unresponsive pipeline connection blocks after 45s
-            serverSelectionTimeoutMS: 5000, // Throws exception early if cluster instance fails to ping
-            family: 4                  // Prioritizes IPv4 addresses layout matching config networks
+            maxPoolSize: 50,
+            minPoolSize: 10,
+            socketTimeoutMS: 45000,
+            serverSelectionTimeoutMS: 5000,
+            family: 4
         };
 
-        // 🔥 FIX: Yahan MONGO_URI rakha hai taaki Render ke variable se match ho
-        const conn = await mongoose.connect(process.env.MONGO_URI, enterprisePoolOptions);
+        // 🔥 FIX: Yahan MONGO_URI ki jagah MONGODB_URI karo (jo tumhari .env mein hai)
+        const conn = await mongoose.connect(process.env.MONGODB_URI, enterprisePoolOptions);
         
         console.log(`=========================================`);
         console.log(`🗄️  MONGODB CLUSTER DATABASE CONNECTED`);
@@ -22,7 +21,7 @@ const connectDB = async () => {
         console.log(`=========================================`);
     } catch (error) {
         console.error(`❌ DATABASE CONNECTION ERROR: ${error.message}`);
-        process.exit(1); // Server ko band kar dega agar database connect nahi hua
+        process.exit(1);
     }
 };
 

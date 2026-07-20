@@ -65,24 +65,24 @@ const Overview = () => {
 
   return (
     <div className="space-y-6 animate-in fade-in duration-500">
-      <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm border-l-4 border-[#2563EB]">
-        <h2 className="text-xl font-black text-slate-900 uppercase tracking-wide">Principal Command Center</h2>
-        <p className="text-sm text-slate-500 mt-1 font-medium">Live metrics synchronized with Director & Receptionist entries.</p>
+      <div className="bg-white border border-slate-200 rounded-xl p-4 md:p-6 shadow-sm border-l-4 border-[#2563EB]">
+        <h2 className="text-lg md:text-xl font-black text-slate-900 uppercase tracking-wide">Principal Command Center</h2>
+        <p className="text-xs md:text-sm text-slate-500 mt-1 font-medium">Live metrics synchronized with Director & Receptionist entries.</p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-        <div className="bg-white border border-slate-200 p-6 rounded-xl shadow-sm flex items-center justify-between hover:shadow-md transition-shadow">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
+        <div className="bg-white border border-slate-200 p-5 md:p-6 rounded-xl shadow-sm flex items-center justify-between hover:shadow-md transition-shadow">
           <div>
-            <span className="text-xs text-slate-400 font-bold uppercase tracking-widest block">Total Students</span>
-            <span className="text-2xl font-black text-slate-900 mt-1 block">{stats.students} <span className="text-sm font-semibold text-slate-500">Enrolled</span></span>
+            <span className="text-[10px] md:text-xs text-slate-400 font-bold uppercase tracking-widest block">Total Students</span>
+            <span className="text-xl md:text-2xl font-black text-slate-900 mt-1 block">{stats.students} <span className="text-xs md:text-sm font-semibold text-slate-500">Enrolled</span></span>
           </div>
-          <div className="p-3 bg-blue-50 text-[#2563EB] rounded-xl"><GraduationCap size={24}/></div>
+          <div className="p-2 md:p-3 bg-blue-50 text-[#2563EB] rounded-xl"><GraduationCap size={24}/></div>
         </div>
-        <div className="bg-white border border-slate-200 p-6 rounded-xl shadow-sm flex items-center justify-between hover:shadow-md transition-shadow">
+        <div className="bg-white border border-slate-200 p-5 md:p-6 rounded-xl shadow-sm flex items-center justify-between hover:shadow-md transition-shadow">
           <div>
-            <span className="text-xs text-slate-400 font-bold uppercase tracking-widest block">Total Faculty</span>
-            <span className="text-2xl font-black text-indigo-600 mt-1 block">{stats.teachers} <span className="text-sm font-semibold text-slate-500">Active</span></span>
+            <span className="text-[10px] md:text-xs text-slate-400 font-bold uppercase tracking-widest block">Total Faculty</span>
+            <span className="text-xl md:text-2xl font-black text-indigo-600 mt-1 block">{stats.teachers} <span className="text-xs md:text-sm font-semibold text-slate-500">Active</span></span>
           </div>
-          <div className="p-3 bg-indigo-50 text-indigo-600 rounded-xl"><Users size={24}/></div>
+          <div className="p-2 md:p-3 bg-indigo-50 text-indigo-600 rounded-xl"><Users size={24}/></div>
         </div>
       </div>
     </div>
@@ -104,27 +104,27 @@ const StudentManagementReal = () => {
   }, []);
 
   return (
-    <div className="bg-white border border-slate-200 p-6 rounded-xl shadow-sm animate-in fade-in duration-500">
-      <h2 className="text-lg font-black text-slate-800 flex items-center gap-2 uppercase tracking-wide mb-6 border-b border-slate-100 pb-4">
+    <div className="bg-white border border-slate-200 p-4 md:p-6 rounded-xl shadow-sm animate-in fade-in duration-500">
+      <h2 className="text-base md:text-lg font-black text-slate-800 flex items-center gap-2 uppercase tracking-wide mb-4 md:mb-6 border-b border-slate-100 pb-4">
         <Users className="text-[#2563EB]" size={20}/> Live Student Directory
       </h2>
-      <div className="overflow-x-auto">
-        <table className="w-full text-left text-sm">
+      <div className="overflow-x-auto w-full">
+        <table className="w-full text-left text-sm min-w-[600px]">
           <thead>
             <tr className="bg-slate-50 border-y border-slate-200 text-slate-500 font-bold uppercase text-[10px] tracking-wider">
-              <th className="p-4">Roll No</th>
-              <th className="p-4">Student Name</th>
-              <th className="p-4">Class</th>
-              <th className="p-4">Parent Email</th>
+              <th className="p-3 md:p-4">Roll No</th>
+              <th className="p-3 md:p-4">Student Name</th>
+              <th className="p-3 md:p-4">Class</th>
+              <th className="p-3 md:p-4">Parent Email</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-slate-100 text-slate-700">
             {loading ? <tr><td colSpan="4" className="p-8 text-center font-bold text-slate-400">Loading Data...</td></tr> : students.map(s => (
               <tr key={s._id} className="hover:bg-slate-50 transition-colors">
-                <td className="p-4 font-mono font-bold text-[#2563EB]">{s.rollNumber}</td>
-                <td className="p-4 font-bold text-slate-900">{s.name}</td>
-                <td className="p-4 font-semibold text-slate-600 bg-slate-100/50 rounded-lg inline-block mt-2 ml-4">{s.classAllocation}</td>
-                <td className="p-4 text-slate-500">{s.parentEmail}</td>
+                <td className="p-3 md:p-4 font-mono font-bold text-[#2563EB]">{s.rollNumber}</td>
+                <td className="p-3 md:p-4 font-bold text-slate-900">{s.name}</td>
+                <td className="p-3 md:p-4 font-semibold text-slate-600 bg-slate-100/50 rounded-lg inline-block mt-2 ml-4">{s.classAllocation}</td>
+                <td className="p-3 md:p-4 text-slate-500">{s.parentEmail}</td>
               </tr>
             ))}
           </tbody>
@@ -163,37 +163,39 @@ const TeacherManagementReal = () => {
   }, []);
 
   return (
-    <div className="bg-white border border-slate-200 p-6 rounded-xl shadow-sm animate-in fade-in duration-500">
-      <h2 className="text-lg font-black text-slate-800 flex items-center gap-2 uppercase tracking-wide mb-6 border-b border-slate-100 pb-4">
+    <div className="bg-white border border-slate-200 p-4 md:p-6 rounded-xl shadow-sm animate-in fade-in duration-500">
+      <h2 className="text-base md:text-lg font-black text-slate-800 flex items-center gap-2 uppercase tracking-wide mb-4 md:mb-6 border-b border-slate-100 pb-4">
         <UserCheck className="text-indigo-600" size={20}/> Active Faculty Directory
       </h2>
-      <table className="w-full text-left text-sm">
-        <thead>
-          <tr className="bg-slate-50 border-y border-slate-200 text-slate-500 font-bold uppercase text-[10px] tracking-wider">
-            <th className="p-4">Faculty Name</th>
-            <th className="p-4">Email ID</th>
-            <th className="p-4">Role / Dept</th>
-            <th className="p-4">Status</th>
-          </tr>
-        </thead>
-        <tbody className="divide-y divide-slate-100 text-slate-700">
-          {teachers.map(t => (
-            <tr key={t._id} className="hover:bg-slate-50 transition-colors">
-              <td className="p-4 font-bold text-slate-900 flex items-center gap-2">
-                <div className="w-8 h-8 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold text-xs uppercase">
-                  {(t.name || t.fullName || 'F').charAt(0)}
-                </div>
-                {t.name || t.fullName}
-              </td>
-              <td className="p-4 font-mono text-xs text-slate-500">{t.email}</td>
-              <td className="p-4 text-xs font-bold text-slate-600 uppercase">{t.role || 'Faculty'}</td>
-              <td className="p-4">
-                <span className="bg-emerald-50 text-emerald-600 border border-emerald-200 px-2.5 py-1 rounded text-[10px] font-black tracking-wider uppercase">ACTIVE</span>
-              </td>
+      <div className="overflow-x-auto w-full">
+        <table className="w-full text-left text-sm min-w-[600px]">
+          <thead>
+            <tr className="bg-slate-50 border-y border-slate-200 text-slate-500 font-bold uppercase text-[10px] tracking-wider">
+              <th className="p-3 md:p-4">Faculty Name</th>
+              <th className="p-3 md:p-4">Email ID</th>
+              <th className="p-3 md:p-4">Role / Dept</th>
+              <th className="p-3 md:p-4">Status</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody className="divide-y divide-slate-100 text-slate-700">
+            {teachers.map(t => (
+              <tr key={t._id} className="hover:bg-slate-50 transition-colors">
+                <td className="p-3 md:p-4 font-bold text-slate-900 flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold text-xs uppercase shrink-0">
+                    {(t.name || t.fullName || 'F').charAt(0)}
+                  </div>
+                  <span className="whitespace-nowrap">{t.name || t.fullName}</span>
+                </td>
+                <td className="p-3 md:p-4 font-mono text-xs text-slate-500">{t.email}</td>
+                <td className="p-3 md:p-4 text-xs font-bold text-slate-600 uppercase">{t.role || 'Faculty'}</td>
+                <td className="p-3 md:p-4">
+                  <span className="bg-emerald-50 text-emerald-600 border border-emerald-200 px-2.5 py-1 rounded text-[10px] font-black tracking-wider uppercase">ACTIVE</span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
@@ -231,11 +233,11 @@ const AssignClassTeacher = () => {
   };
 
   return (
-    <div className="bg-white border border-slate-200 p-8 rounded-xl shadow-sm animate-in fade-in duration-500 max-w-2xl">
-      <h2 className="text-lg font-black text-slate-800 flex items-center gap-2 uppercase tracking-wide mb-6 border-b border-slate-100 pb-4">
+    <div className="bg-white border border-slate-200 p-5 md:p-8 rounded-xl shadow-sm animate-in fade-in duration-500 max-w-2xl">
+      <h2 className="text-base md:text-lg font-black text-slate-800 flex items-center gap-2 uppercase tracking-wide mb-5 md:mb-6 border-b border-slate-100 pb-4">
         <BookOpen className="text-emerald-600" size={20}/> Assign Class Teacher
       </h2>
-      <form onSubmit={handleAssign} className="space-y-5">
+      <form onSubmit={handleAssign} className="space-y-4 md:space-y-5">
         <div>
           <label className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Select Class</label>
           <select required className="w-full mt-1 border-2 border-slate-200 rounded-lg p-2.5 text-sm outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 font-semibold text-slate-700 transition-all cursor-pointer">
@@ -268,12 +270,12 @@ const ExamScheduler = () => {
   };
 
   return (
-    <div className="bg-white border border-slate-200 p-8 rounded-xl shadow-sm max-w-2xl animate-in fade-in duration-500">
-      <h2 className="text-lg font-black text-slate-800 flex items-center gap-2 uppercase tracking-wide mb-6 border-b border-slate-100 pb-4">
+    <div className="bg-white border border-slate-200 p-5 md:p-8 rounded-xl shadow-sm max-w-2xl animate-in fade-in duration-500">
+      <h2 className="text-base md:text-lg font-black text-slate-800 flex items-center gap-2 uppercase tracking-wide mb-5 md:mb-6 border-b border-slate-100 pb-4">
         <FileText className="text-rose-600" size={20}/> Schedule New Examination
       </h2>
-      <form onSubmit={handleSchedule} className="space-y-5">
-        <div className="grid grid-cols-2 gap-5">
+      <form onSubmit={handleSchedule} className="space-y-4 md:space-y-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
           <div>
             <label className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Exam Title</label>
             <input type="text" required placeholder="e.g. Mid-Term 2026" className="w-full mt-1 border-2 border-slate-200 rounded-lg p-2.5 text-sm outline-none focus:border-rose-500 focus:ring-4 focus:ring-rose-500/10 font-semibold text-slate-800 transition-all placeholder:font-normal placeholder:text-slate-400"/>
@@ -309,11 +311,11 @@ const NoticeBroadcaster = () => {
   };
 
   return (
-    <div className="bg-white border border-slate-200 p-8 rounded-xl shadow-sm max-w-2xl animate-in fade-in duration-500">
-      <h2 className="text-lg font-black text-slate-800 flex items-center gap-2 uppercase tracking-wide mb-6 border-b border-slate-100 pb-4">
+    <div className="bg-white border border-slate-200 p-5 md:p-8 rounded-xl shadow-sm max-w-2xl animate-in fade-in duration-500">
+      <h2 className="text-base md:text-lg font-black text-slate-800 flex items-center gap-2 uppercase tracking-wide mb-5 md:mb-6 border-b border-slate-100 pb-4">
         <Bell className="text-[#2563EB]" size={20}/> Broadcast System Notice
       </h2>
-      <form onSubmit={handleNotice} className="space-y-6">
+      <form onSubmit={handleNotice} className="space-y-5 md:space-y-6">
         <div>
           <label className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Notice Content</label>
           <textarea rows="4" required placeholder="Type your official notice here..." className="w-full mt-1 border-2 border-slate-200 rounded-lg p-3 text-sm outline-none focus:border-[#2563EB] focus:ring-4 focus:ring-blue-500/10 transition-all font-medium text-slate-700 placeholder:text-slate-400 resize-none"></textarea>
@@ -321,7 +323,7 @@ const NoticeBroadcaster = () => {
         
         <div>
           <label className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-3 block">Send To (Target Audience):</label>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {['Parents & Students', 'Teaching Faculty', 'Accountants & HR', 'Transport Drivers'].map(audience => (
               <label key={audience} className="flex items-center gap-3 p-3 border-2 border-slate-100 rounded-lg bg-slate-50 cursor-pointer hover:border-blue-200 hover:bg-blue-50/30 transition-all">
                 <input type="checkbox" className="w-4 h-4 text-[#2563EB] rounded border-slate-300 focus:ring-[#2563EB]" />
@@ -344,7 +346,7 @@ const NoticeBroadcaster = () => {
 // =========================================================================
 const PrincipalDashboard = () => {
   return (
-    <div className="flex-1 w-full p-6 lg:p-8 bg-slate-50 min-h-screen">
+    <div className="flex-1 w-full p-4 md:p-6 lg:p-8 bg-slate-50 min-h-screen overflow-x-hidden">
       <Routes>
         <Route path="/" element={<Navigate to="dashboard/overview" replace />} />
         <Route path="dashboard/overview" element={<Overview />} />
@@ -354,9 +356,9 @@ const PrincipalDashboard = () => {
         <Route path="exams/create" element={<ExamScheduler />} />
         <Route path="notices/create" element={<NoticeBroadcaster />} />
         <Route path="*" element={
-          <div className="bg-white p-10 rounded-xl border border-slate-200 text-center">
-            <h2 className="text-xl font-bold text-slate-700">Module Selected</h2>
-            <p className="text-slate-500 mt-2">Use the active forms (Assign Teacher, Exams, Notices) to test the data flow.</p>
+          <div className="bg-white p-6 md:p-10 rounded-xl border border-slate-200 text-center">
+            <h2 className="text-lg md:text-xl font-bold text-slate-700">Module Selected</h2>
+            <p className="text-sm md:text-base text-slate-500 mt-2">Use the active forms (Assign Teacher, Exams, Notices) to test the data flow.</p>
           </div>
         } />
       </Routes>

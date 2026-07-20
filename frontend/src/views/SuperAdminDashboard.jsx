@@ -15,40 +15,40 @@ import toast, { Toaster } from 'react-hot-toast';
 // 1. OVERVIEW HUB COMPONENT
 // =========================================================================
 const OverviewHub = ({ tenants }) => (
-  <div className="space-y-6 animate-in fade-in duration-500">
-    <div className="bg-white border border-slate-200 rounded-[10px] p-6 shadow-sm border-l-4 border-blue-600">
-      <h2 className="text-lg font-bold text-slate-900">SaaS Multi-Tenant Global Architecture</h2>
-      <p className="text-xs text-slate-500 mt-1">Real-time system HUD metrics across all decentralized institutional branches.</p>
+  <div className="space-y-4 md:space-y-6 animate-in fade-in duration-500">
+    <div className="bg-white border border-slate-200 rounded-[10px] p-4 md:p-6 shadow-sm border-l-4 border-blue-600">
+      <h2 className="text-base md:text-lg font-bold text-slate-900">SaaS Multi-Tenant Global Architecture</h2>
+      <p className="text-[11px] md:text-xs text-slate-500 mt-1">Real-time system HUD metrics across all decentralized institutional branches.</p>
     </div>
     
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-      <div className="bg-white border border-slate-200 rounded-[10px] p-5 flex items-center justify-between shadow-sm">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+      <div className="bg-white border border-slate-200 rounded-[10px] p-4 md:p-5 flex items-center justify-between shadow-sm">
         <div>
-          <span className="text-xs text-slate-500 font-semibold uppercase">Campuses</span>
-          <span className="text-2xl font-black text-slate-900 mt-1 block">{tenants?.length || 0}</span>
+          <span className="text-[10px] md:text-xs text-slate-500 font-semibold uppercase">Campuses</span>
+          <span className="text-xl md:text-2xl font-black text-slate-900 mt-1 block">{tenants?.length || 0}</span>
         </div>
-        <div className="p-3 bg-blue-50 text-[#2563EB] rounded-[10px]"><Building2 size={20} /></div>
+        <div className="p-2 md:p-3 bg-blue-50 text-[#2563EB] rounded-[10px]"><Building2 size={20} /></div>
       </div>
-      <div className="bg-white border border-slate-200 rounded-[10px] p-5 flex items-center justify-between shadow-sm">
+      <div className="bg-white border border-slate-200 rounded-[10px] p-4 md:p-5 flex items-center justify-between shadow-sm">
         <div>
-          <span className="text-xs text-slate-500 font-semibold uppercase">Uptime</span>
-          <span className="text-2xl font-black text-emerald-600 mt-1 block">99.9%</span>
+          <span className="text-[10px] md:text-xs text-slate-500 font-semibold uppercase">Uptime</span>
+          <span className="text-xl md:text-2xl font-black text-emerald-600 mt-1 block">99.9%</span>
         </div>
-        <div className="p-3 bg-emerald-50 text-emerald-600 rounded-[10px]"><Activity size={20} /></div>
+        <div className="p-2 md:p-3 bg-emerald-50 text-emerald-600 rounded-[10px]"><Activity size={20} /></div>
       </div>
-      <div className="bg-white border border-slate-200 rounded-[10px] p-5 flex items-center justify-between shadow-sm">
+      <div className="bg-white border border-slate-200 rounded-[10px] p-4 md:p-5 flex items-center justify-between shadow-sm">
         <div>
-          <span className="text-xs text-slate-500 font-semibold uppercase">Staff</span>
-          <span className="text-2xl font-black text-amber-600 mt-1 block">{tenants?.reduce((acc, t) => acc + (t?.stats?.teachers || 0), 0) || 0}</span>
+          <span className="text-[10px] md:text-xs text-slate-500 font-semibold uppercase">Staff</span>
+          <span className="text-xl md:text-2xl font-black text-amber-600 mt-1 block">{tenants?.reduce((acc, t) => acc + (t?.stats?.teachers || 0), 0) || 0}</span>
         </div>
-        <div className="p-3 bg-amber-50 text-amber-600 rounded-[10px]"><UserCheck size={20} /></div>
+        <div className="p-2 md:p-3 bg-amber-50 text-amber-600 rounded-[10px]"><UserCheck size={20} /></div>
       </div>
-      <div className="bg-white border border-slate-200 rounded-[10px] p-5 flex items-center justify-between shadow-sm">
+      <div className="bg-white border border-slate-200 rounded-[10px] p-4 md:p-5 flex items-center justify-between shadow-sm">
         <div>
-          <span className="text-xs text-slate-500 font-semibold uppercase">Students</span>
-          <span className="text-2xl font-black text-violet-600 mt-1 block">{tenants?.reduce((acc, t) => acc + (t?.stats?.students || 0), 0) || 0}</span>
+          <span className="text-[10px] md:text-xs text-slate-500 font-semibold uppercase">Students</span>
+          <span className="text-xl md:text-2xl font-black text-violet-600 mt-1 block">{tenants?.reduce((acc, t) => acc + (t?.stats?.students || 0), 0) || 0}</span>
         </div>
-        <div className="p-3 bg-violet-50 text-violet-600 rounded-[10px]"><GraduationCap size={20} /></div>
+        <div className="p-2 md:p-3 bg-violet-50 text-violet-600 rounded-[10px]"><GraduationCap size={20} /></div>
       </div>
     </div>
   </div>
@@ -92,9 +92,9 @@ const TenantRegistry = ({
   );
 
   return (
-    <div className="flex flex-col w-full gap-8 animate-in fade-in duration-500">
-      <div className="bg-white border border-slate-200 rounded-[10px] p-6 shadow-sm border-t-4 border-[#2563EB]">
-        <h3 className="text-sm font-bold text-slate-900 tracking-wide flex items-center gap-2 mb-6">
+    <div className="flex flex-col w-full gap-6 md:gap-8 animate-in fade-in duration-500">
+      <div className="bg-white border border-slate-200 rounded-[10px] p-4 md:p-6 shadow-sm border-t-4 border-[#2563EB]">
+        <h3 className="text-sm font-bold text-slate-900 tracking-wide flex items-center gap-2 mb-4 md:mb-6">
           <Plus size={16} className="text-[#2563EB]" /> Create Campus Profile
         </h3>
         <form onSubmit={handleDeployTenant} className="space-y-4">
@@ -109,7 +109,7 @@ const TenantRegistry = ({
             </div>
           </div>
           
-          <div className="space-y-4 pt-5 border-t border-slate-200 mt-2">
+          <div className="space-y-4 pt-4 md:pt-5 border-t border-slate-200 mt-2">
             <p className="text-[10px] font-black text-[#2563EB] uppercase tracking-widest bg-blue-50 inline-block px-3 py-1 rounded-full">Director Credentials</p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="space-y-1.5">
@@ -137,13 +137,13 @@ const TenantRegistry = ({
         </form>
       </div>
 
-      <div className="bg-white border border-slate-200 rounded-[10px] p-6 shadow-sm space-y-4">
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-4">
+      <div className="bg-white border border-slate-200 rounded-[10px] p-4 md:p-6 shadow-sm space-y-4">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-4">
           <h3 className="text-sm font-bold text-slate-900 tracking-wide flex items-center gap-2">
             <Building2 size={16} className="text-[#2563EB]" /> Active Campuses
           </h3>
-          <div className="flex items-center gap-3 w-full sm:w-auto">
-            <div className="relative flex-1 sm:w-64">
+          <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto">
+            <div className="relative flex-1 w-full sm:w-64">
               <Search size={14} className="absolute left-3 top-2.5 text-slate-400" />
               <input 
                 type="text" 
@@ -153,7 +153,7 @@ const TenantRegistry = ({
                 className="w-full pl-9 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-xs outline-none focus:border-[#2563EB] transition-all"
               />
             </div>
-            <button onClick={handleExportCSV} className="flex items-center gap-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 px-4 py-2 rounded-lg text-xs font-bold transition-all whitespace-nowrap">
+            <button onClick={handleExportCSV} className="w-full sm:w-auto flex items-center justify-center gap-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 px-4 py-2 rounded-lg text-xs font-bold transition-all whitespace-nowrap">
               <Download size={14} /> Export
             </button>
           </div>
@@ -163,30 +163,30 @@ const TenantRegistry = ({
           <p className="text-center text-slate-500 py-8 text-sm font-medium">No campuses found.</p>
         ) : (
           filteredTenants.map((tenant) => (
-            <div key={tenant.id} className="bg-white border border-slate-200 rounded-[10px] p-5 shadow-sm hover:border-blue-200 transition-colors">
-              <div className="flex items-start gap-4">
+            <div key={tenant.id} className="bg-white border border-slate-200 rounded-[10px] p-4 md:p-5 shadow-sm hover:border-blue-200 transition-colors">
+              <div className="flex flex-col sm:flex-row items-start gap-4">
                 <div className="h-12 w-12 rounded-[10px] bg-blue-50 flex items-center justify-center text-[#2563EB] font-black text-xl border border-blue-100 shrink-0">
                   {tenant.name?.charAt(0) || 'C'}
                 </div>
-                <div className="flex-1">
+                <div className="flex-1 w-full">
                   <div className="flex justify-between items-start mb-4">
                     <div>
                       <h4 className="text-sm font-bold">{tenant.name}</h4>
                       <span className="bg-slate-100 text-[9px] font-mono font-bold uppercase px-2 py-0.5 rounded border border-slate-200">{tenant.code}</span>
                     </div>
-                    <span className="bg-emerald-50 text-emerald-600 border border-emerald-200 text-[9px] font-bold px-2 py-0.5 rounded uppercase">
+                    <span className="bg-emerald-50 text-emerald-600 border border-emerald-200 text-[9px] font-bold px-2 py-0.5 rounded uppercase shrink-0">
                       {tenant.status || 'Active'}
                     </span>
                   </div>
                   
-                  <div className="bg-slate-50 p-4 rounded-[8px] border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  <div className="bg-slate-50 p-3 md:p-4 rounded-[8px] border border-slate-200 flex flex-col lg:flex-row lg:items-center justify-between gap-4 w-full">
                     <div>
                       <span className="text-[9px] text-slate-400 font-bold uppercase block mb-1">Director Name</span>
                       <span className="text-xs font-semibold text-slate-800 flex items-center gap-1.5"><UserCheck size={14} className="text-[#2563EB]"/> {tenant.directorDetails?.name || 'Pending'}</span>
                     </div>
                     <div>
                       <span className="text-[9px] text-slate-400 font-bold uppercase block mb-1">Email Access</span>
-                      <span className="text-xs font-mono font-semibold text-slate-800 select-all">{tenant.directorEmail}</span>
+                      <span className="text-xs font-mono font-semibold text-slate-800 select-all break-all">{tenant.directorEmail}</span>
                     </div>
                     <div>
                       <span className="text-[9px] text-slate-400 font-bold uppercase block mb-1">Password</span>
@@ -204,7 +204,7 @@ const TenantRegistry = ({
                       <span className="text-[10px] font-bold text-slate-600">Staff: {tenant.stats?.teachers || 0}</span>
                       <span className="text-[10px] font-bold text-slate-600">Std: {tenant.stats?.students || 0}</span>
                     </div>
-                    <div className="flex gap-2">
+                    <div className="flex gap-2 w-full sm:w-auto justify-end">
                       <button onClick={() => executeDownloadDumpBackup(tenant.code)} className="text-[10px] font-bold bg-white border px-3 py-1.5 rounded hover:bg-slate-50 transition-colors shadow-sm">Backup Node</button>
                       <button onClick={() => handleDecommission(tenant.id, tenant.code)} className="text-[10px] font-bold text-rose-600 bg-rose-50 border border-rose-100 px-3 py-1.5 rounded hover:bg-rose-100 transition-colors shadow-sm">Remove</button>
                     </div>
@@ -223,43 +223,48 @@ const TenantRegistry = ({
 // 3. BILLING LOGS & 4. SECURITY LOGS
 // =========================================================================
 const BillingLogs = ({ tenants }) => (
-  <div className="bg-white border border-slate-200 rounded-[10px] p-6 shadow-sm animate-in fade-in duration-500">
+  <div className="bg-white border border-slate-200 rounded-[10px] p-4 md:p-6 shadow-sm animate-in fade-in duration-500 w-full">
     <h3 className="text-sm font-bold mb-4 flex items-center gap-2"><Clock size={16} className="text-[#2563EB]"/> Platform Licenses & Renewals</h3>
-    <table className="w-full text-left text-xs">
-      <thead>
-        <tr className="bg-slate-50 text-slate-500 font-bold uppercase tracking-wider text-[10px]">
-          <th className="p-4 rounded-l-lg">Campus</th><th className="p-4">Plan</th><th className="p-4">Fee</th><th className="p-4 text-right rounded-r-lg">Status</th>
-        </tr>
-      </thead>
-      <tbody className="divide-y divide-slate-100 border-t border-slate-100">
-        {tenants?.map((t) => (
-          <tr key={t.id} className="hover:bg-slate-50/50 transition-colors">
-            <td className="p-4 font-bold">{t.name}</td>
-            <td className="p-4 text-[#2563EB] font-semibold">{t.billing?.plan}</td>
-            <td className="p-4 font-medium text-slate-700">{t.billing?.amount}</td>
-            <td className="p-4 text-right"><span className="px-2 py-1 bg-emerald-50 text-emerald-600 rounded text-[9px] font-bold uppercase tracking-wide border border-emerald-200">{t.billing?.status}</span></td>
+    <div className="overflow-x-auto w-full">
+      <table className="w-full text-left text-xs min-w-[500px]">
+        <thead>
+          <tr className="bg-slate-50 text-slate-500 font-bold uppercase tracking-wider text-[10px]">
+            <th className="p-3 md:p-4 rounded-l-lg">Campus</th>
+            <th className="p-3 md:p-4">Plan</th>
+            <th className="p-3 md:p-4">Fee</th>
+            <th className="p-3 md:p-4 text-right rounded-r-lg">Status</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody className="divide-y divide-slate-100 border-t border-slate-100">
+          {tenants?.map((t) => (
+            <tr key={t.id} className="hover:bg-slate-50/50 transition-colors">
+              <td className="p-3 md:p-4 font-bold">{t.name}</td>
+              <td className="p-3 md:p-4 text-[#2563EB] font-semibold">{t.billing?.plan}</td>
+              <td className="p-3 md:p-4 font-medium text-slate-700">{t.billing?.amount}</td>
+              <td className="p-3 md:p-4 text-right"><span className="px-2 py-1 bg-emerald-50 text-emerald-600 rounded text-[9px] font-bold uppercase tracking-wide border border-emerald-200">{t.billing?.status}</span></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   </div>
 );
 
 const SecurityLogs = ({ tenants, searchQuery, setSearchQuery, handleCrossNodeSearch, alertSubject, setAlertSubject, alertContent, setAlertContent, handleGlobalAlertBroadcast }) => (
-  <div className="space-y-6 animate-in fade-in duration-500">
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-      <form onSubmit={handleCrossNodeSearch} className="bg-white p-6 border border-slate-200 rounded-[10px] shadow-sm flex flex-col justify-between">
+  <div className="space-y-4 md:space-y-6 animate-in fade-in duration-500 w-full">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
+      <form onSubmit={handleCrossNodeSearch} className="bg-white p-4 md:p-6 border border-slate-200 rounded-[10px] shadow-sm flex flex-col justify-between">
         <h3 className="text-sm font-bold mb-4 flex items-center gap-2 text-slate-900 tracking-wide"><Search size={16} className="text-[#2563EB]"/> System-Wide Student Finder</h3>
         <div className="space-y-3">
           <input type="text" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className="w-full border-2 border-slate-300 rounded-[8px] p-2.5 outline-none focus:border-[#2563EB] focus:ring-4 focus:ring-blue-500/10 text-sm transition-all" placeholder="Search student name..." />
           <button className="bg-[#2563EB] hover:bg-blue-700 text-white w-full py-2.5 rounded-[8px] font-bold text-xs uppercase tracking-wider transition-colors shadow-sm">Search Network</button>
         </div>
       </form>
-      <form onSubmit={handleGlobalAlertBroadcast} className="bg-white p-6 border border-slate-200 rounded-[10px] shadow-sm flex flex-col justify-between">
+      <form onSubmit={handleGlobalAlertBroadcast} className="bg-white p-4 md:p-6 border border-slate-200 rounded-[10px] shadow-sm flex flex-col justify-between">
         <h3 className="text-sm font-bold mb-4 flex items-center gap-2 text-slate-900 tracking-wide"><Radio size={16} className="text-emerald-500 animate-pulse"/> Network Announcements</h3>
         <div className="space-y-3">
           <input type="text" value={alertSubject} onChange={(e) => setAlertSubject(e.target.value)} className="w-full border-2 border-slate-300 rounded-[8px] p-2.5 outline-none focus:border-[#2563EB] focus:ring-4 focus:ring-blue-500/10 text-sm transition-all" placeholder="Notice Title..." />
-          <textarea value={alertContent} onChange={(e) => setAlertContent(e.target.value)} className="w-full border-2 border-slate-300 rounded-[8px] p-2.5 outline-none focus:border-[#2563EB] focus:ring-4 focus:ring-blue-500/10 text-sm resize-none h-12 transition-all" placeholder="Announcement details..." />
+          <textarea value={alertContent} onChange={(e) => setAlertContent(e.target.value)} className="w-full border-2 border-slate-300 rounded-[8px] p-2.5 outline-none focus:border-[#2563EB] focus:ring-4 focus:ring-blue-500/10 text-sm resize-none h-16 transition-all" placeholder="Announcement details..." />
           <button className="bg-emerald-600 hover:bg-emerald-500 text-white w-full py-2.5 rounded-[8px] font-bold text-xs uppercase tracking-wider transition-colors shadow-sm">Send Broadcast</button>
         </div>
       </form>
@@ -311,52 +316,55 @@ const DataRecovery = () => {
   };
 
   return (
-    <div className="space-y-6 animate-in fade-in duration-500 max-w-5xl">
-      <div className="bg-white border border-slate-200 p-6 rounded-xl shadow-sm border-t-4 border-[#2563EB]">
-        <div className="mb-6 border-b border-slate-100 pb-4">
-          <h2 className="text-lg font-black text-slate-900 uppercase flex items-center gap-2 tracking-wide">
+    <div className="space-y-4 md:space-y-6 animate-in fade-in duration-500 max-w-5xl w-full">
+      <div className="bg-white border border-slate-200 p-4 md:p-6 rounded-xl shadow-sm border-t-4 border-[#2563EB]">
+        <div className="mb-4 md:mb-6 border-b border-slate-100 pb-4">
+          <h2 className="text-base md:text-lg font-black text-slate-900 uppercase flex items-center gap-2 tracking-wide">
             <Database size={20} className="text-[#2563EB]" /> Tenant Data Recovery Center
           </h2>
-          <p className="text-sm text-slate-500 mt-1">Super Admin cloud backup node stack. Input a specific Institutional Tenant ID to scan Soft-Deleted document shards.</p>
+          <p className="text-xs md:text-sm text-slate-500 mt-1">Super Admin cloud backup node stack. Input a specific Institutional Tenant ID to scan Soft-Deleted document shards.</p>
         </div>
         <form onSubmit={handleFetchDeleted} className="flex flex-col sm:flex-row gap-3 max-w-lg">
           <input 
             type="text" placeholder="Enter Tenant ID (e.g., TEST-01)" 
             value={recoverTenantId} onChange={(e) => setRecoverTenantId(e.target.value)} 
-            className="flex-1 border-2 border-slate-300 p-2.5 rounded-lg outline-none focus:border-[#2563EB] focus:ring-4 focus:ring-blue-500/10 transition-all font-mono uppercase text-sm" required
+            className="flex-1 w-full border-2 border-slate-300 p-2.5 rounded-lg outline-none focus:border-[#2563EB] focus:ring-4 focus:ring-blue-500/10 transition-all font-mono uppercase text-sm" required
           />
-          <button type="submit" disabled={loading} className="bg-[#2563EB] hover:bg-blue-700 disabled:bg-blue-400 text-white font-bold px-6 py-2.5 rounded-lg text-xs uppercase tracking-widest shadow-md transition-all flex items-center justify-center min-w-[180px]">
+          <button type="submit" disabled={loading} className="bg-[#2563EB] hover:bg-blue-700 disabled:bg-blue-400 text-white font-bold px-6 py-2.5 rounded-lg text-xs uppercase tracking-widest shadow-md transition-all flex items-center justify-center min-w-[180px] w-full sm:w-auto">
             {loading ? 'Scanning...' : 'Fetch Data Streams'}
           </button>
         </form>
       </div>
 
       {deletedRecords && (
-        <div className="bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden animate-in fade-in duration-500">
-          <div className="p-4 bg-slate-50 border-b border-slate-200 flex justify-between items-center">
-            <h3 className="text-sm font-bold text-slate-800">
+        <div className="bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden animate-in fade-in duration-500 w-full">
+          <div className="p-4 bg-slate-50 border-b border-slate-200 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+            <h3 className="text-xs md:text-sm font-bold text-slate-800">
               Found <span className="text-[#2563EB]">{deletedRecords.length}</span> deleted records for: <span className="font-mono">{recoverTenantId.toUpperCase()}</span>
             </h3>
           </div>
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm">
+          <div className="overflow-x-auto w-full">
+            <table className="w-full text-left text-sm min-w-[700px]">
               <thead>
                 <tr className="bg-slate-100 text-[10px] uppercase text-slate-500 font-bold border-b border-slate-200">
-                  <th className="p-4">Doc ID</th><th className="p-4">Record Type</th><th className="p-4">Details</th>
-                  <th className="p-4">Deleted By / Date</th><th className="p-4 text-right">Action</th>
+                  <th className="p-3 md:p-4">Doc ID</th>
+                  <th className="p-3 md:p-4">Record Type</th>
+                  <th className="p-3 md:p-4">Details</th>
+                  <th className="p-3 md:p-4">Deleted By / Date</th>
+                  <th className="p-3 md:p-4 text-right">Action</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100 text-slate-700">
                 {deletedRecords.map((record) => (
                   <tr key={record.id} className="hover:bg-blue-50/30 transition-colors">
-                    <td className="p-4 font-mono font-bold text-slate-500 text-xs">{record.id}</td>
-                    <td className="p-4 font-bold text-slate-900">{record.type}</td>
-                    <td className="p-4 font-medium text-slate-600">{record.name}</td>
-                    <td className="p-4">
-                      <span className="block text-xs font-mono text-slate-500">{record.deletedBy}</span>
+                    <td className="p-3 md:p-4 font-mono font-bold text-slate-500 text-xs">{record.id}</td>
+                    <td className="p-3 md:p-4 font-bold text-slate-900">{record.type}</td>
+                    <td className="p-3 md:p-4 font-medium text-slate-600">{record.name}</td>
+                    <td className="p-3 md:p-4">
+                      <span className="block text-xs font-mono text-slate-500 break-all">{record.deletedBy}</span>
                       <span className="block text-[10px] text-slate-400 font-bold">{record.date}</span>
                     </td>
-                    <td className="p-4 text-right">
+                    <td className="p-3 md:p-4 text-right">
                       <button onClick={() => handleRestore(record.id)} className="bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-700 font-bold px-4 py-2 rounded text-xs transition-colors">
                         RESTORE
                       </button>
@@ -459,7 +467,7 @@ const SuperAdminDashboard = () => {
   };
 
   return (
-    <div className="flex-1 w-full p-6 lg:p-8 overflow-y-auto bg-slate-50 min-h-screen relative">
+    <div className="flex-1 w-full p-4 md:p-6 lg:p-8 overflow-y-auto overflow-x-hidden bg-slate-50 min-h-screen relative">
       <Toaster position="top-right" reverseOrder={false} /> 
       
       <Routes>

@@ -119,87 +119,87 @@ const FacultyDashboard = () => {
   };
 
   return (
-    <div className="space-y-6 animate-in fade-in duration-500">
+    <div className="space-y-4 md:space-y-6 animate-in fade-in duration-500 w-full">
       
       {/* 🟢 MASTER FACULTY TERMINAL HEADER */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center bg-white border border-slate-200 p-6 rounded-xl shadow-sm gap-4">
-        <div className="space-y-1">
+      <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center bg-white border border-slate-200 p-4 md:p-6 rounded-xl shadow-sm gap-4 w-full">
+        <div className="space-y-1 w-full lg:w-auto">
           <div className="flex items-center gap-2">
             <span className="h-2 w-2 rounded-full bg-blue-500 animate-pulse"></span>
             <span className="text-[10px] font-bold text-blue-600 uppercase tracking-widest">Academic Workspace</span>
           </div>
-          <h1 className="text-xl md:text-2xl font-black text-slate-900 tracking-tight mt-1.5 uppercase">Faculty Allocation Console</h1>
-          <p className="text-xs text-slate-500">Authorized Terminal Session for: <span className="font-mono text-slate-700 font-bold">{userEmail}</span></p>
+          <h1 className="text-lg md:text-2xl font-black text-slate-900 tracking-tight mt-1.5 uppercase break-words">Faculty Allocation Console</h1>
+          <p className="text-[11px] md:text-xs text-slate-500 break-all">Authorized Terminal Session for: <span className="font-mono text-slate-700 font-bold">{userEmail}</span></p>
         </div>
-        <div className="bg-slate-50 border border-slate-200 p-3 rounded-xl text-right min-w-[150px]">
+        <div className="bg-slate-50 border border-slate-200 p-3 rounded-xl text-left lg:text-right w-full lg:min-w-[150px] lg:w-auto">
           <span className="text-[10px] font-bold text-slate-500 block uppercase tracking-wider">Institution Domain</span>
-          <span className="text-xs font-mono font-black text-[#2563EB] uppercase tracking-widest block mt-0.5">{activeTenantId}</span>
+          <span className="text-xs font-mono font-black text-[#2563EB] uppercase tracking-widest block mt-0.5 break-words">{activeTenantId}</span>
         </div>
       </div>
 
       {/* 📊 MIDTERM PERFORMANCE HUD COUNTERS */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-        <div className="bg-white border border-slate-200 rounded-xl p-5 flex items-center justify-between shadow-sm border-l-4 border-l-blue-500">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-5">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 md:p-5 flex items-center justify-between shadow-sm border-l-4 border-l-blue-500">
           <div>
-            <span className="text-xs text-slate-400 block font-bold uppercase">Class Roster Size</span>
-            <span className="text-2xl font-black text-slate-900 mt-1 block">{students.length} <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Enrolled</span></span>
+            <span className="text-[10px] md:text-xs text-slate-400 block font-bold uppercase">Class Roster Size</span>
+            <span className="text-xl md:text-2xl font-black text-slate-900 mt-1 block">{students.length} <span className="text-[9px] md:text-[10px] text-slate-500 font-bold uppercase tracking-wider">Enrolled</span></span>
           </div>
-          <div className="p-3 bg-blue-50 text-blue-600 rounded-xl"><UserCheck size={20} /></div>
+          <div className="p-2 md:p-3 bg-blue-50 text-blue-600 rounded-xl"><UserCheck size={20} /></div>
         </div>
-        <div className="bg-white border border-slate-200 rounded-xl p-5 flex items-center justify-between shadow-sm border-l-4 border-l-emerald-500">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 md:p-5 flex items-center justify-between shadow-sm border-l-4 border-l-emerald-500">
           <div>
-            <span className="text-xs text-slate-400 block font-bold uppercase">Avg. Attendance</span>
-            <span className="text-2xl font-black text-slate-900 mt-1 block">
+            <span className="text-[10px] md:text-xs text-slate-400 block font-bold uppercase">Avg. Attendance</span>
+            <span className="text-xl md:text-2xl font-black text-slate-900 mt-1 block">
               {students.length > 0 ? Math.round(students.reduce((acc, s) => acc + s.rawPercentage, 0) / students.length) : 0}% 
             </span>
           </div>
-          <div className="p-3 bg-emerald-50 text-emerald-600 rounded-xl"><BookOpen size={20} /></div>
+          <div className="p-2 md:p-3 bg-emerald-50 text-emerald-600 rounded-xl"><BookOpen size={20} /></div>
         </div>
-        <div className="bg-white border border-slate-200 rounded-xl p-5 flex items-center justify-between shadow-sm border-l-4 border-l-amber-500">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 md:p-5 flex items-center justify-between shadow-sm border-l-4 border-l-amber-500">
           <div>
-            <span className="text-xs text-slate-400 block font-bold uppercase">Top Tier Merits</span>
-            <span className="text-2xl font-black text-slate-900 mt-1 block">
-              {students.filter(s => s.midtermGrade === 'A+' || s.midtermGrade === 'A').length} <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Profiles</span>
+            <span className="text-[10px] md:text-xs text-slate-400 block font-bold uppercase">Top Tier Merits</span>
+            <span className="text-xl md:text-2xl font-black text-slate-900 mt-1 block">
+              {students.filter(s => s.midtermGrade === 'A+' || s.midtermGrade === 'A').length} <span className="text-[9px] md:text-[10px] text-slate-500 font-bold uppercase tracking-wider">Profiles</span>
             </span>
           </div>
-          <div className="p-3 bg-amber-50 text-amber-600 rounded-xl"><Award size={20} /></div>
+          <div className="p-2 md:p-3 bg-amber-50 text-amber-600 rounded-xl"><Award size={20} /></div>
         </div>
       </div>
 
       {/* 🔥 MAIN CONTENT AREA */}
       <Routes>
         <Route path="attendance" element={
-          <div className="space-y-6">
-            <div className="flex bg-slate-100 p-1 rounded-lg border border-slate-200 max-w-sm">
-              <button onClick={() => setActiveTab('attendance')} className={`flex-1 py-2 text-xs font-bold uppercase rounded-md transition-all flex items-center justify-center gap-2 ${activeTab === 'attendance' ? 'bg-white text-blue-600 shadow-sm border border-slate-200/50' : 'text-slate-500 hover:text-slate-700'}`}>
+          <div className="space-y-4 md:space-y-6 w-full">
+            <div className="flex flex-row bg-slate-100 p-1 rounded-lg border border-slate-200 w-full sm:max-w-sm">
+              <button onClick={() => setActiveTab('attendance')} className={`flex-1 py-2 md:py-2.5 text-[10px] md:text-xs font-bold uppercase rounded-md transition-all flex items-center justify-center gap-1.5 md:gap-2 ${activeTab === 'attendance' ? 'bg-white text-blue-600 shadow-sm border border-slate-200/50' : 'text-slate-500 hover:text-slate-700'}`}>
                 <ClipboardCheck size={14} /> Attendance
               </button>
-              <button onClick={() => setActiveTab('grading')} className={`flex-1 py-2 text-xs font-bold uppercase rounded-md transition-all flex items-center justify-center gap-2 ${activeTab === 'grading' ? 'bg-white text-blue-600 shadow-sm border border-slate-200/50' : 'text-slate-500 hover:text-slate-700'}`}>
+              <button onClick={() => setActiveTab('grading')} className={`flex-1 py-2 md:py-2.5 text-[10px] md:text-xs font-bold uppercase rounded-md transition-all flex items-center justify-center gap-1.5 md:gap-2 ${activeTab === 'grading' ? 'bg-white text-blue-600 shadow-sm border border-slate-200/50' : 'text-slate-500 hover:text-slate-700'}`}>
                 <FileSpreadsheet size={14} /> Grading
               </button>
             </div>
 
             {/* TAB 1: ATTENDANCE */}
             {activeTab === 'attendance' && (
-              <div className="bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden animate-in fade-in duration-300">
-                <div className="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50/50">
+              <div className="bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden animate-in fade-in duration-300 w-full">
+                <div className="p-4 md:p-6 border-b border-slate-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 md:gap-4 bg-slate-50/50">
                   <div>
-                    <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wide flex items-center gap-2">
+                    <h3 className="text-xs md:text-sm font-bold text-slate-900 uppercase tracking-wide flex items-center gap-2">
                       <GraduationCap size={16} className="text-blue-600" /> Classroom Roster Input
                     </h3>
                   </div>
-                  <button onClick={handleDataPersistence} className="bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs px-4 py-2.5 rounded-lg flex items-center gap-2 transition-colors shadow-sm">
+                  <button onClick={handleDataPersistence} className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs px-4 py-2.5 rounded-lg flex items-center justify-center gap-2 transition-colors shadow-sm">
                     <Save size={14} /> Save Roll to Database
                   </button>
                 </div>
                 <div className="overflow-x-auto w-full">
-                  <table className="w-full text-left text-xs border-collapse">
+                  <table className="w-full text-left text-xs border-collapse min-w-[600px]">
                     <thead>
                       <tr className="bg-slate-50 border-b border-slate-200 text-slate-500 font-semibold uppercase text-[10px]">
-                        <th className="p-4">Roll ID</th>
-                        <th className="p-4">Student Name</th>
-                        <th className="p-4 text-center">Status Index</th>
-                        <th className="p-4 text-center">Data Actions</th>
+                        <th className="p-3 md:p-4">Roll ID</th>
+                        <th className="p-3 md:p-4">Student Name</th>
+                        <th className="p-3 md:p-4 text-center">Status Index</th>
+                        <th className="p-3 md:p-4 text-center">Data Actions</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-100 text-slate-600 font-medium">
@@ -207,23 +207,23 @@ const FacultyDashboard = () => {
                         <tr><td colSpan="4" className="p-8 text-center text-slate-400">Loading student roster from server...</td></tr>
                       ) : students.map((student) => (
                         <tr key={student.id} className="hover:bg-slate-50/50 transition-colors">
-                          <td className="p-4 font-mono font-bold text-slate-900">{student.roll}</td>
-                          <td className="p-4 font-bold text-slate-800">{student.name}</td>
-                          <td className="p-4 text-center">
-                            <span className={`inline-flex items-center gap-1.5 font-bold text-[10px] px-2.5 py-1 rounded-md uppercase tracking-wide border ${student.attendance === 'Present' ? 'bg-emerald-50 text-emerald-600 border-emerald-200' : 'bg-rose-50 text-rose-600 border-rose-200'}`}>
+                          <td className="p-3 md:p-4 font-mono font-bold text-slate-900">{student.roll}</td>
+                          <td className="p-3 md:p-4 font-bold text-slate-800">{student.name}</td>
+                          <td className="p-3 md:p-4 text-center">
+                            <span className={`inline-flex items-center gap-1.5 font-bold text-[10px] px-2.5 py-1 rounded-md uppercase tracking-wide border whitespace-nowrap ${student.attendance === 'Present' ? 'bg-emerald-50 text-emerald-600 border-emerald-200' : 'bg-rose-50 text-rose-600 border-rose-200'}`}>
                               {student.attendance === 'Absent' && <AlertTriangle size={12} />}
                               {student.attendance} ({student.rawPercentage}%)
                             </span>
                           </td>
-                          <td className="p-4">
-                            <div className="flex items-center justify-center gap-4">
+                          <td className="p-3 md:p-4">
+                            <div className="flex items-center justify-center gap-2 md:gap-4 whitespace-nowrap">
                               <button onClick={() => toggleAttendance(student.id)} className={`text-[10px] font-bold px-3 py-1.5 rounded-lg border transition-all shadow-sm uppercase tracking-wider ${student.attendance === 'Present' ? 'bg-white text-slate-600 border-slate-300 hover:bg-slate-50' : 'bg-slate-800 text-white border-slate-800 hover:bg-slate-700'}`}>
                                 Toggle
                               </button>
                               <div className="flex items-center border border-slate-200 bg-slate-50 rounded-lg p-0.5">
-                                <button type="button" onClick={() => handleDecrementAttendance(student.id)} className="p-1 hover:bg-white text-rose-500 rounded-md transition-colors"><Minus size={14} /></button>
+                                <button type="button" onClick={() => handleDecrementAttendance(student.id)} className="p-1.5 hover:bg-white text-rose-500 rounded-md transition-colors"><Minus size={14} /></button>
                                 <span className="px-2 font-mono text-slate-600 text-[10px] font-bold">1%</span>
-                                <button type="button" onClick={() => handleIncrementAttendance(student.id)} className="p-1 hover:bg-white text-emerald-500 rounded-md transition-colors"><Plus size={14} /></button>
+                                <button type="button" onClick={() => handleIncrementAttendance(student.id)} className="p-1.5 hover:bg-white text-emerald-500 rounded-md transition-colors"><Plus size={14} /></button>
                               </div>
                             </div>
                           </td>
@@ -237,36 +237,36 @@ const FacultyDashboard = () => {
 
             {/* TAB 2: GRADING */}
             {activeTab === 'grading' && (
-              <div className="bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden animate-in fade-in duration-300">
-                <div className="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50/50">
+              <div className="bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden animate-in fade-in duration-300 w-full">
+                <div className="p-4 md:p-6 border-b border-slate-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 md:gap-4 bg-slate-50/50">
                   <div>
-                    <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wide flex items-center gap-2">
+                    <h3 className="text-xs md:text-sm font-bold text-slate-900 uppercase tracking-wide flex items-center gap-2">
                       <FileSpreadsheet size={16} className="text-blue-600" /> Score & Performance Sheet
                     </h3>
                   </div>
-                  <button onClick={handleDataPersistence} className="bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs px-4 py-2.5 rounded-lg flex items-center gap-2 transition-colors shadow-sm">
+                  <button onClick={handleDataPersistence} className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs px-4 py-2.5 rounded-lg flex items-center justify-center gap-2 transition-colors shadow-sm">
                     <Save size={14} /> Save Grades to Database
                   </button>
                 </div>
                 <div className="overflow-x-auto w-full">
-                  <table className="w-full text-left text-xs border-collapse">
+                  <table className="w-full text-left text-xs border-collapse min-w-[500px]">
                     <thead>
                       <tr className="bg-slate-50 border-b border-slate-200 text-slate-500 font-semibold uppercase text-[10px]">
-                        <th className="p-4">Roll ID</th>
-                        <th className="p-4">Student Name</th>
-                        <th className="p-4 text-right">Assigned Letter Grade</th>
+                        <th className="p-3 md:p-4">Roll ID</th>
+                        <th className="p-3 md:p-4">Student Name</th>
+                        <th className="p-3 md:p-4 text-right">Assigned Letter Grade</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-100 text-slate-600 font-medium">
                       {students.map((student) => (
                         <tr key={student.id} className="hover:bg-slate-50/50 transition-colors">
-                          <td className="p-4 font-mono font-bold text-slate-900">{student.roll}</td>
-                          <td className="p-4 font-bold text-slate-800">{student.name}</td>
-                          <td className="p-4 text-right">
+                          <td className="p-3 md:p-4 font-mono font-bold text-slate-900">{student.roll}</td>
+                          <td className="p-3 md:p-4 font-bold text-slate-800">{student.name}</td>
+                          <td className="p-3 md:p-4 text-right">
                             <select 
                               value={student.midtermGrade} 
                               onChange={(e) => handleGradeChange(student.id, e.target.value)}
-                              className="bg-white border border-slate-300 text-slate-700 font-bold text-xs rounded-lg px-3 py-2 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 cursor-pointer transition-all"
+                              className="bg-white border border-slate-300 text-slate-700 font-bold text-xs rounded-lg px-2 md:px-3 py-1.5 md:py-2 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 cursor-pointer transition-all"
                             >
                               <option value="A+">A+ (90-100%)</option>
                               <option value="A">A (80-89%)</option>
@@ -286,18 +286,18 @@ const FacultyDashboard = () => {
         } />
 
         <Route path="classes" element={
-          <div className="bg-white border border-slate-200 p-10 rounded-xl shadow-sm text-center py-20 animate-in fade-in duration-300">
+          <div className="bg-white border border-slate-200 p-6 md:p-10 rounded-xl shadow-sm text-center py-12 md:py-20 animate-in fade-in duration-300 w-full">
             <BookOpen size={48} className="mx-auto text-blue-200 mb-4" />
-            <h2 className="text-2xl font-bold text-slate-700 mb-2">My Classes & Subjects</h2>
-            <p className="text-slate-500">Your assigned subjects and weekly schedules will appear here.</p>
+            <h2 className="text-xl md:text-2xl font-bold text-slate-700 mb-2">My Classes & Subjects</h2>
+            <p className="text-sm md:text-base text-slate-500">Your assigned subjects and weekly schedules will appear here.</p>
           </div>
         } />
 
         <Route path="enquiry" element={
-          <div className="bg-white border border-slate-200 p-10 rounded-xl shadow-sm text-center py-20 animate-in fade-in duration-300">
+          <div className="bg-white border border-slate-200 p-6 md:p-10 rounded-xl shadow-sm text-center py-12 md:py-20 animate-in fade-in duration-300 w-full">
             <Users size={48} className="mx-auto text-blue-200 mb-4" />
-            <h2 className="text-2xl font-bold text-slate-700 mb-2">Class Enquiries</h2>
-            <p className="text-slate-500">Student doubts and parent communications will be listed here.</p>
+            <h2 className="text-xl md:text-2xl font-bold text-slate-700 mb-2">Class Enquiries</h2>
+            <p className="text-sm md:text-base text-slate-500">Student doubts and parent communications will be listed here.</p>
           </div>
         } />
 

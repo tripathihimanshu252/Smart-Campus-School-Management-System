@@ -15,59 +15,59 @@ import {
 // 1. FRONT DESK OVERVIEW (Home)
 // ==========================================
 const FrontDeskOverview = () => (
-  <div className="space-y-6 animate-in fade-in duration-500">
-    <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm flex justify-between items-center border-l-4 border-[#2563EB]">
+  <div className="space-y-4 md:space-y-6 animate-in fade-in duration-500">
+    <div className="bg-white border border-slate-200 rounded-xl p-4 md:p-6 shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-l-4 border-[#2563EB]">
       <div>
-        <h2 className="text-xl font-black text-slate-900 uppercase tracking-wide">Front Desk & Wellness Terminal</h2>
-        <p className="text-sm font-medium text-slate-500 mt-1">Manage campus entries, medical emergencies, and student counseling sessions.</p>
+        <h2 className="text-lg md:text-xl font-black text-slate-900 uppercase tracking-wide">Front Desk & Wellness Terminal</h2>
+        <p className="text-xs md:text-sm font-medium text-slate-500 mt-1">Manage campus entries, medical emergencies, and student counseling sessions.</p>
       </div>
-      <div className="bg-emerald-50 border border-emerald-200 px-3 py-1.5 rounded-lg flex items-center gap-2 shadow-sm">
+      <div className="bg-emerald-50 border border-emerald-200 px-3 py-1.5 rounded-lg flex items-center gap-2 shadow-sm w-full md:w-auto justify-center md:justify-start">
         <Zap size={14} className="text-emerald-600 animate-pulse" />
         <span className="text-[10px] font-black text-emerald-600 uppercase tracking-widest">Systems Active</span>
       </div>
     </div>
     
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-      <div className="bg-white border border-slate-200 p-6 rounded-xl shadow-sm flex items-center justify-between hover:shadow-md transition-shadow">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-5">
+      <div className="bg-white border border-slate-200 p-5 md:p-6 rounded-xl shadow-sm flex items-center justify-between hover:shadow-md transition-shadow">
         <div>
-          <span className="text-xs text-slate-400 font-bold uppercase tracking-widest block">Today's Visitors</span>
-          <span className="text-2xl font-black text-slate-900 mt-1 block">45 <span className="text-sm font-semibold text-slate-500">Checked-in</span></span>
+          <span className="text-[10px] md:text-xs text-slate-400 font-bold uppercase tracking-widest block">Today's Visitors</span>
+          <span className="text-xl md:text-2xl font-black text-slate-900 mt-1 block">45 <span className="text-xs md:text-sm font-semibold text-slate-500">Checked-in</span></span>
         </div>
-        <div className="p-3 bg-blue-50 text-[#2563EB] rounded-xl"><Users size={24}/></div>
+        <div className="p-2 md:p-3 bg-blue-50 text-[#2563EB] rounded-xl"><Users size={24}/></div>
       </div>
-      <div className="bg-white border border-slate-200 p-6 rounded-xl shadow-sm flex items-center justify-between hover:shadow-md transition-shadow">
+      <div className="bg-white border border-slate-200 p-5 md:p-6 rounded-xl shadow-sm flex items-center justify-between hover:shadow-md transition-shadow">
         <div>
-          <span className="text-xs text-slate-400 font-bold uppercase tracking-widest block">Active Gate Passes</span>
-          <span className="text-2xl font-black text-slate-900 mt-1 block">03 <span className="text-sm font-semibold text-slate-500">Issued</span></span>
+          <span className="text-[10px] md:text-xs text-slate-400 font-bold uppercase tracking-widest block">Active Gate Passes</span>
+          <span className="text-xl md:text-2xl font-black text-slate-900 mt-1 block">03 <span className="text-xs md:text-sm font-semibold text-slate-500">Issued</span></span>
         </div>
-        <div className="p-3 bg-rose-50 text-rose-600 rounded-xl"><ShieldAlert size={24}/></div>
+        <div className="p-2 md:p-3 bg-rose-50 text-rose-600 rounded-xl"><ShieldAlert size={24}/></div>
       </div>
-      <div className="bg-white border border-slate-200 p-6 rounded-xl shadow-sm flex items-center justify-between hover:shadow-md transition-shadow">
+      <div className="bg-white border border-slate-200 p-5 md:p-6 rounded-xl shadow-sm flex items-center justify-between hover:shadow-md transition-shadow sm:col-span-2 md:col-span-1">
         <div>
-          <span className="text-xs text-slate-400 font-bold uppercase tracking-widest block">Pending Inquiries</span>
-          <span className="text-2xl font-black text-slate-900 mt-1 block">08 <span className="text-sm font-semibold text-slate-500">Pending</span></span>
+          <span className="text-[10px] md:text-xs text-slate-400 font-bold uppercase tracking-widest block">Pending Inquiries</span>
+          <span className="text-xl md:text-2xl font-black text-slate-900 mt-1 block">08 <span className="text-xs md:text-sm font-semibold text-slate-500">Pending</span></span>
         </div>
-        <div className="p-3 bg-indigo-50 text-indigo-600 rounded-xl"><Bell size={24}/></div>
+        <div className="p-2 md:p-3 bg-indigo-50 text-indigo-600 rounded-xl"><Bell size={24}/></div>
       </div>
     </div>
 
     {/* System Status Analytics */}
-    <div className="bg-white border border-slate-200 p-6 rounded-xl shadow-sm space-y-4">
-      <h4 className="text-sm font-black uppercase tracking-widest text-slate-800 flex items-center gap-2 border-b border-slate-100 pb-4">
+    <div className="bg-white border border-slate-200 p-4 md:p-6 rounded-xl shadow-sm space-y-4">
+      <h4 className="text-xs md:text-sm font-black uppercase tracking-widest text-slate-800 flex items-center gap-2 border-b border-slate-100 pb-4">
         <UserCheck size={18} className="text-[#2563EB]"/> Security & Integration Status
       </h4>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 pt-2">
-        <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 flex justify-between items-center hover:bg-white hover:shadow-sm transition-all">
-          <span className="text-xs font-bold text-slate-600 uppercase tracking-wide">Gate Security</span>
-          <span className="text-[10px] font-black text-emerald-600 bg-emerald-100/50 px-2.5 py-1 rounded border border-emerald-200 tracking-wider">LOCKED</span>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-5 pt-2">
+        <div className="bg-slate-50 p-3 md:p-4 rounded-xl border border-slate-200 flex justify-between items-center hover:bg-white hover:shadow-sm transition-all">
+          <span className="text-[11px] md:text-xs font-bold text-slate-600 uppercase tracking-wide">Gate Security</span>
+          <span className="text-[9px] md:text-[10px] font-black text-emerald-600 bg-emerald-100/50 px-2.5 py-1 rounded border border-emerald-200 tracking-wider">LOCKED</span>
         </div>
-        <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 flex justify-between items-center hover:bg-white hover:shadow-sm transition-all">
-          <span className="text-xs font-bold text-slate-600 uppercase tracking-wide">Parent Notify Sys</span>
-          <span className="text-[10px] font-black text-emerald-600 bg-emerald-100/50 px-2.5 py-1 rounded border border-emerald-200 tracking-wider">READY</span>
+        <div className="bg-slate-50 p-3 md:p-4 rounded-xl border border-slate-200 flex justify-between items-center hover:bg-white hover:shadow-sm transition-all">
+          <span className="text-[11px] md:text-xs font-bold text-slate-600 uppercase tracking-wide">Parent Notify Sys</span>
+          <span className="text-[9px] md:text-[10px] font-black text-emerald-600 bg-emerald-100/50 px-2.5 py-1 rounded border border-emerald-200 tracking-wider">READY</span>
         </div>
-        <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 flex justify-between items-center hover:bg-white hover:shadow-sm transition-all">
-          <span className="text-xs font-bold text-slate-600 uppercase tracking-wide">Exit Vector Link</span>
-          <span className="text-[10px] font-black text-emerald-600 bg-emerald-100/50 px-2.5 py-1 rounded border border-emerald-200 tracking-wider">ACTIVE</span>
+        <div className="bg-slate-50 p-3 md:p-4 rounded-xl border border-slate-200 flex justify-between items-center hover:bg-white hover:shadow-sm transition-all">
+          <span className="text-[11px] md:text-xs font-bold text-slate-600 uppercase tracking-wide">Exit Vector Link</span>
+          <span className="text-[9px] md:text-[10px] font-black text-emerald-600 bg-emerald-100/50 px-2.5 py-1 rounded border border-emerald-200 tracking-wider">ACTIVE</span>
         </div>
       </div>
     </div>
@@ -120,13 +120,13 @@ const NewAdmission = () => {
   };
 
   return (
-    <div className="bg-white border border-slate-200 rounded-xl p-8 shadow-sm animate-in fade-in duration-300">
-      <h3 className="text-lg font-black text-slate-800 uppercase tracking-wide flex items-center gap-2 border-b border-slate-100 pb-4 mb-6">
-        <UserPlus size={20} className="text-[#2563EB]"/> New Student Admission Form
+    <div className="bg-white border border-slate-200 rounded-xl p-5 md:p-8 shadow-sm animate-in fade-in duration-300 w-full max-w-full overflow-hidden">
+      <h3 className="text-base md:text-lg font-black text-slate-800 uppercase tracking-wide flex items-center gap-2 border-b border-slate-100 pb-4 mb-5 md:mb-6">
+        <UserPlus size={20} className="text-[#2563EB]"/> New Student Admission
       </h3>
       
-      <form onSubmit={handleSubmit} className="space-y-6 max-w-4xl">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <form onSubmit={handleSubmit} className="space-y-5 md:space-y-6 max-w-4xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           <div>
             <label className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1.5 block">Student Full Name *</label>
             <input type="text" required value={formData.studentName} placeholder="e.g. Rahul Kumar" 
@@ -144,7 +144,7 @@ const NewAdmission = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-5 bg-blue-50/50 rounded-xl border border-blue-100">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 p-4 md:p-5 bg-blue-50/50 rounded-xl border border-blue-100">
           {isSenior ? (
             <div>
               <label className="text-[10px] font-bold text-blue-800 uppercase tracking-widest mb-1.5 flex items-center gap-1"><BookOpen size={14}/> Select Stream (Class 11) *</label>
@@ -158,7 +158,7 @@ const NewAdmission = () => {
               </select>
             </div>
           ) : (
-            <div className="text-xs text-slate-400 italic font-medium flex items-center h-full pt-6">Stream selection only applicable for Class 11.</div>
+            <div className="text-[11px] md:text-xs text-slate-400 italic font-medium flex items-center h-full pt-2 md:pt-6">Stream selection only applicable for Class 11.</div>
           )}
 
           {!isJunior ? (
@@ -169,17 +169,17 @@ const NewAdmission = () => {
                 onChange={(e) => setFormData({...formData, previousSchool: e.target.value})} />
             </div>
           ) : (
-            <div className="text-[11px] text-emerald-700 font-bold bg-emerald-100/50 p-3 rounded-lg border border-emerald-200 flex items-center gap-2 mt-4 md:mt-0">
-               <CheckCircle2 size={16}/> Fresher (LKG/UKG) - No previous school required.
+            <div className="text-[10px] md:text-[11px] text-emerald-700 font-bold bg-emerald-100/50 p-3 rounded-lg border border-emerald-200 flex items-center gap-2 mt-2 md:mt-0">
+               <CheckCircle2 size={16} className="shrink-0"/> Fresher (LKG/UKG) - No previous school required.
             </div>
           )}
         </div>
 
-        <div className="p-6 border border-slate-200 rounded-xl bg-slate-50 space-y-5">
-          <h4 className="text-sm font-black text-slate-800 uppercase tracking-wide border-b border-slate-200 pb-3 flex items-center gap-2">
+        <div className="p-4 md:p-6 border border-slate-200 rounded-xl bg-slate-50 space-y-4 md:space-y-5">
+          <h4 className="text-xs md:text-sm font-black text-slate-800 uppercase tracking-wide border-b border-slate-200 pb-3 flex items-center gap-2">
             <Users size={16} className="text-slate-400"/> Parent Portal Credentials
           </h4>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
             <div>
               <label className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1.5 block">Father's Full Name *</label>
               <input type="text" required value={formData.fatherName} placeholder="Father Name" 
@@ -201,8 +201,8 @@ const NewAdmission = () => {
           </div>
         </div>
 
-        <button type="submit" disabled={loading} className="bg-[#2563EB] text-white font-bold text-xs uppercase tracking-widest px-8 py-3.5 rounded-lg hover:bg-blue-700 transition-colors shadow-md shadow-blue-500/20 disabled:opacity-50 mt-2">
-          {loading ? 'Syncing to Database...' : 'Confirm Admission & Generate ID'}
+        <button type="submit" disabled={loading} className="w-full sm:w-auto bg-[#2563EB] text-white font-bold text-xs uppercase tracking-widest px-8 py-3.5 rounded-lg hover:bg-blue-700 transition-colors shadow-md shadow-blue-500/20 disabled:opacity-50 mt-2">
+          {loading ? 'Syncing to Database...' : 'Confirm Admission'}
         </button>
       </form>
     </div>
@@ -222,12 +222,12 @@ const VisitorEntryForm = () => {
   };
 
   return (
-    <div className="bg-white border border-slate-200 p-8 rounded-xl shadow-sm max-w-3xl animate-in fade-in duration-300">
-      <h3 className="text-lg font-black text-slate-800 uppercase tracking-wide flex items-center gap-2 border-b border-slate-100 pb-4 mb-6">
+    <div className="bg-white border border-slate-200 p-5 md:p-8 rounded-xl shadow-sm max-w-3xl animate-in fade-in duration-300 w-full">
+      <h3 className="text-base md:text-lg font-black text-slate-800 uppercase tracking-wide flex items-center gap-2 border-b border-slate-100 pb-4 mb-5 md:mb-6">
         <Users size={20} className="text-indigo-600"/> Visitor Entry Registration
       </h3>
-      <form onSubmit={handleVisitorSubmit} className="space-y-5">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+      <form onSubmit={handleVisitorSubmit} className="space-y-4 md:space-y-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
           <div>
             <label className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1.5 block">Visitor Name *</label>
             <input type="text" required value={visitor.name} placeholder="Full Name" 
@@ -261,7 +261,7 @@ const VisitorEntryForm = () => {
               onChange={(e) => setVisitor({...visitor, purpose: e.target.value})}></textarea>
           </div>
         </div>
-        <button type="submit" className="bg-indigo-600 text-white font-bold text-xs uppercase tracking-widest px-8 py-3.5 rounded-lg hover:bg-indigo-700 transition-colors shadow-md shadow-indigo-500/20 flex items-center gap-2 mt-2">
+        <button type="submit" className="w-full sm:w-auto bg-indigo-600 text-white font-bold text-xs uppercase tracking-widest px-8 py-3.5 rounded-lg hover:bg-indigo-700 transition-colors shadow-md shadow-indigo-500/20 flex items-center justify-center gap-2 mt-2">
           <Clock size={16}/> Generate Gate Pass
         </button>
       </form>
@@ -294,16 +294,16 @@ const VisitorMedicalLogs = () => {
   };
 
   return (
-    <div className="bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden animate-in fade-in duration-300">
-      <div className="p-6 border-b border-slate-100">
-        <h3 className="text-lg font-black text-slate-800 uppercase tracking-wide flex items-center gap-2">
+    <div className="bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden animate-in fade-in duration-300 w-full">
+      <div className="p-4 md:p-6 border-b border-slate-100">
+        <h3 className="text-base md:text-lg font-black text-slate-800 uppercase tracking-wide flex items-center gap-2">
           <HeartPulse className="text-rose-600" size={20} /> Campus Infirmary & Gate Pass Logs
         </h3>
-        <p className="text-sm font-medium text-slate-500 mt-1">Authorize immediate campus exits and monitor medical logs.</p>
+        <p className="text-xs md:text-sm font-medium text-slate-500 mt-1">Authorize immediate campus exits and monitor medical logs.</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-5 gap-0">
-        <div className="md:col-span-2 p-6 border-b md:border-b-0 md:border-r border-slate-100 bg-slate-50/50 space-y-5">
+        <div className="md:col-span-2 p-4 md:p-6 border-b md:border-b-0 md:border-r border-slate-100 bg-slate-50/50 space-y-4 md:space-y-5">
           <div className="space-y-1.5">
             <label className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Select Patient / Student</label>
             <select value={targetRoll} onChange={(e) => setTargetRoll(e.target.value)} 
@@ -313,25 +313,25 @@ const VisitorMedicalLogs = () => {
             </select>
           </div>
           <button onClick={handleMedicalEmergency} disabled={isProcessing} className="w-full bg-rose-600 hover:bg-rose-700 text-white text-xs uppercase tracking-widest font-bold py-3.5 rounded-lg flex items-center justify-center gap-2 transition-all shadow-md shadow-rose-500/20">
-            {isProcessing ? 'Processing Pass...' : <><PlusSquare size={16}/> Authorize Medical Pass</>}
+            {isProcessing ? 'Processing Pass...' : <><PlusSquare size={16}/> Authorize Pass</>}
           </button>
         </div>
 
-        <div className="md:col-span-3 p-6 space-y-3 max-h-[300px] overflow-y-auto custom-scrollbar">
-          <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">Recent Authorizations</h4>
+        <div className="md:col-span-3 p-4 md:p-6 space-y-3 max-h-[300px] overflow-y-auto custom-scrollbar">
+          <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-3 md:mb-4">Recent Authorizations</h4>
           {medicalLogs.length === 0 ? (
-            <div className="text-center py-10 text-slate-400 border-2 border-dashed border-slate-200 rounded-xl bg-slate-50">
-              <p className="text-xs font-bold uppercase tracking-wide">No critical incidents logged today.</p>
+            <div className="text-center py-8 md:py-10 text-slate-400 border-2 border-dashed border-slate-200 rounded-xl bg-slate-50">
+              <p className="text-[10px] md:text-xs font-bold uppercase tracking-wide">No critical incidents logged today.</p>
             </div>
           ) : (
             medicalLogs.map(log => (
-              <div key={log.id} className="bg-white border border-slate-200 p-4 rounded-xl flex justify-between items-center shadow-sm hover:shadow-md transition-all mb-3">
+              <div key={log.id} className="bg-white border border-slate-200 p-3 md:p-4 rounded-xl flex flex-col sm:flex-row justify-between sm:items-center gap-3 shadow-sm hover:shadow-md transition-all mb-3">
                 <div>
                   <p className="text-sm font-black text-slate-900">{log.name}</p>
                   <p className="text-[10px] font-bold text-slate-500 mt-0.5 uppercase tracking-wide">{log.roll} • {log.time}</p>
                 </div>
-                <div className="text-right">
-                  <span className="bg-rose-50 text-rose-600 text-[9px] font-black border border-rose-200 px-2.5 py-1.5 rounded flex items-center gap-1.5 tracking-wider">
+                <div className="text-left sm:text-right">
+                  <span className="bg-rose-50 text-rose-600 text-[9px] font-black border border-rose-200 px-2.5 py-1.5 rounded flex items-center justify-center sm:justify-start gap-1.5 tracking-wider w-full sm:w-auto">
                     <ShieldAlert size={12}/> GATE CLEARANCE ACTIVE
                   </span>
                 </div>
@@ -358,36 +358,36 @@ const InquiriesAppointments = () => {
   };
 
   return (
-    <div className="bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden animate-in fade-in duration-300">
-      <div className="p-6 border-b border-slate-100 flex justify-between items-center">
+    <div className="bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden animate-in fade-in duration-300 w-full">
+      <div className="p-4 md:p-6 border-b border-slate-100 flex flex-col sm:flex-row justify-between sm:items-center gap-3">
         <div>
-          <h3 className="text-lg font-black text-slate-800 uppercase tracking-wide flex items-center gap-2">
+          <h3 className="text-base md:text-lg font-black text-slate-800 uppercase tracking-wide flex items-center gap-2">
             <Calendar size={20} className="text-indigo-600"/> Counseling & Appointments
           </h3>
-          <p className="text-sm font-medium text-slate-500 mt-1">Manage student counseling requests and general inquiries.</p>
+          <p className="text-xs md:text-sm font-medium text-slate-500 mt-1">Manage student counseling requests and general inquiries.</p>
         </div>
       </div>
       
-      <div className="p-6 space-y-4">
+      <div className="p-4 md:p-6 space-y-4">
         {appointments.map((app) => (
-          <div key={app.id} className="bg-white hover:bg-slate-50 border border-slate-200 p-5 rounded-xl flex flex-col md:flex-row md:items-center justify-between gap-4 transition-colors shadow-sm">
-            <div className="space-y-1.5">
-              <div className="flex items-center gap-3">
-                <span className="text-sm font-black text-slate-900 uppercase tracking-wide">{app.student}</span>
-                <span className={`px-2.5 py-1 text-[9px] font-black rounded uppercase tracking-widest border ${app.status === 'Scheduled' ? 'bg-emerald-50 text-emerald-600 border-emerald-200' : 'bg-amber-50 text-amber-600 border-amber-200'}`}>
+          <div key={app.id} className="bg-white hover:bg-slate-50 border border-slate-200 p-4 md:p-5 rounded-xl flex flex-col lg:flex-row lg:items-center justify-between gap-4 transition-colors shadow-sm">
+            <div className="space-y-1.5 w-full">
+              <div className="flex flex-wrap items-center gap-2 md:gap-3">
+                <span className="text-xs md:text-sm font-black text-slate-900 uppercase tracking-wide">{app.student}</span>
+                <span className={`px-2 py-1 text-[9px] font-black rounded uppercase tracking-widest border ${app.status === 'Scheduled' ? 'bg-emerald-50 text-emerald-600 border-emerald-200' : 'bg-amber-50 text-amber-600 border-amber-200'}`}>
                   {app.status}
                 </span>
               </div>
-              <p className="text-xs font-bold text-slate-600">{app.issue}</p>
-              <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">{app.date} • {app.time}</p>
+              <p className="text-[11px] md:text-xs font-bold text-slate-600 break-words">{app.issue}</p>
+              <p className="text-[9px] md:text-[10px] font-bold text-slate-400 uppercase tracking-wider">{app.date} • {app.time}</p>
             </div>
             {app.status === 'Pending' ? (
-              <button onClick={() => handleScheduleSession(app.id)} className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 px-6 rounded-lg text-xs uppercase tracking-widest transition-all shadow-md shadow-indigo-500/20">
+              <button onClick={() => handleScheduleSession(app.id)} className="w-full lg:w-auto bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 px-6 rounded-lg text-xs uppercase tracking-widest transition-all shadow-md shadow-indigo-500/20 whitespace-nowrap">
                 Schedule Session
               </button>
             ) : (
-              <span className="text-[10px] font-black uppercase tracking-widest text-emerald-600 flex items-center gap-1.5 shrink-0 bg-emerald-50 px-4 py-2.5 rounded-lg border border-emerald-100">
-                <CheckCircle2 size={16} /> Scheduled Successfully
+              <span className="w-full lg:w-auto justify-center text-[10px] font-black uppercase tracking-widest text-emerald-600 flex items-center gap-1.5 shrink-0 bg-emerald-50 px-4 py-2.5 rounded-lg border border-emerald-100 whitespace-nowrap">
+                <CheckCircle2 size={16} /> Scheduled
               </span>
             )}
           </div>
@@ -401,12 +401,12 @@ const InquiriesAppointments = () => {
 // Generic Placeholder
 // ==========================================
 const GenericPage = ({ title }) => (
-  <div className="bg-white border border-slate-200 rounded-xl p-12 shadow-sm text-center animate-in fade-in duration-300">
+  <div className="bg-white border border-slate-200 rounded-xl p-8 md:p-12 shadow-sm text-center animate-in fade-in duration-300 w-full">
     <div className="w-16 h-16 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
       <LayoutDashboard size={28} />
     </div>
-    <h2 className="text-xl font-black text-slate-800 uppercase tracking-wide">{title}</h2>
-    <p className="text-slate-500 mt-2 font-medium">This module is active and ready for database integration.</p>
+    <h2 className="text-lg md:text-xl font-black text-slate-800 uppercase tracking-wide">{title}</h2>
+    <p className="text-xs md:text-sm text-slate-500 mt-2 font-medium">This module is active and ready for database integration.</p>
   </div>
 );
 
@@ -415,7 +415,7 @@ const GenericPage = ({ title }) => (
 // ==========================================
 const ReceptionistDashboard = () => {
   return (
-    <div className="flex-1 w-full p-6 lg:p-8 bg-slate-50 min-h-screen overflow-y-auto">
+    <div className="flex-1 w-full p-4 md:p-6 lg:p-8 bg-slate-50 min-h-screen overflow-x-hidden overflow-y-auto">
       <Routes>
         <Route path="/" element={<Navigate to="dashboard" replace />} />
         

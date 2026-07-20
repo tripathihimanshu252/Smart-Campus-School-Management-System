@@ -97,17 +97,17 @@ const DirectorHomeOverview = () => {
   };
 
   return (
-    <div className="space-y-6 animate-in fade-in duration-500 max-w-7xl mx-auto">
+    <div className="space-y-4 md:space-y-6 animate-in fade-in duration-500 max-w-7xl mx-auto">
       
       {/* HEADER SECTION */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-end border-b border-slate-200 pb-4">
         <div>
-          <h1 className="text-2xl font-bold text-slate-900 tracking-tight">Executive Dashboard</h1>
-          <p className="text-sm text-slate-500 mt-1 font-medium">Real-time enterprise metrics & institutional overview.</p>
+          <h1 className="text-xl md:text-2xl font-bold text-slate-900 tracking-tight">Executive Dashboard</h1>
+          <p className="text-xs md:text-sm text-slate-500 mt-1 font-medium">Real-time enterprise metrics & institutional overview.</p>
         </div>
         <button 
           onClick={fetchDashboardData}
-          className="mt-4 md:mt-0 flex items-center gap-2 bg-slate-900 text-white px-4 py-2 rounded-lg text-xs font-bold shadow-sm hover:bg-slate-800 transition-colors"
+          className="mt-4 md:mt-0 flex items-center justify-center w-full md:w-auto gap-2 bg-slate-900 text-white px-4 py-2.5 md:py-2 rounded-lg text-xs font-bold shadow-sm hover:bg-slate-800 transition-colors"
         >
           <RefreshCcw size={14} className={isRefreshing ? 'animate-spin' : ''} />
           {isRefreshing ? 'Syncing...' : 'Live Sync'}
@@ -115,28 +115,27 @@ const DirectorHomeOverview = () => {
       </div>
 
       {/* SEQUENCE 1: FINANCIAL INTELLIGENCE */}
-      <section className="bg-white border border-slate-200 rounded-xl p-5 md:p-6 shadow-sm relative overflow-hidden">
+      <section className="bg-white border border-slate-200 rounded-xl p-4 md:p-6 shadow-sm relative overflow-hidden">
         <div className="absolute top-0 right-0 p-8 opacity-[0.02] pointer-events-none text-slate-900">
           <Wallet size={150} />
         </div>
         
-        <h2 className="text-[11px] font-bold text-slate-700 uppercase tracking-widest mb-5 flex items-center gap-2 relative z-10 border-l-2 border-slate-900 pl-2">
+        <h2 className="text-[11px] font-bold text-slate-700 uppercase tracking-widest mb-4 md:mb-5 flex items-center gap-2 relative z-10 border-l-2 border-slate-900 pl-2">
           <Wallet size={14} /> Financial Intelligence
         </h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 relative z-10">
           <div>
             <p className="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1">Total Revenue Collected</p>
-            {/* 🔥 Fonts ko sleek kiya (text-3xl font-bold) */}
-            <p className="text-3xl font-bold text-slate-800">₹{formatCurrency(metrics.totalFee)}</p>
+            <p className="text-2xl md:text-3xl font-bold text-slate-800">₹{formatCurrency(metrics.totalFee)}</p>
           </div>
-          <div className="md:border-l md:border-slate-200 md:pl-6">
+          <div className="border-t border-slate-100 pt-4 md:border-t-0 md:pt-0 md:border-l md:border-slate-200 md:pl-6">
             <p className="text-[10px] font-bold text-rose-500 uppercase tracking-wider mb-1">Outstanding / Pending</p>
-            <p className="text-3xl font-bold text-rose-600">₹{formatCurrency(metrics.pendingFee)}</p>
+            <p className="text-2xl md:text-3xl font-bold text-rose-600">₹{formatCurrency(metrics.pendingFee)}</p>
           </div>
-          <div className="md:border-l md:border-slate-200 md:pl-6">
+          <div className="border-t border-slate-100 pt-4 md:border-t-0 md:pt-0 md:border-l md:border-slate-200 md:pl-6">
             <p className="text-[10px] font-bold text-emerald-600 uppercase tracking-wider mb-1">Today's Collection</p>
-            <p className="text-3xl font-bold text-emerald-600">₹{formatCurrency(metrics.todayFee)}</p>
+            <p className="text-2xl md:text-3xl font-bold text-emerald-600">₹{formatCurrency(metrics.todayFee)}</p>
           </div>
         </div>
       </section>
@@ -258,8 +257,8 @@ const DirectorStaffManagement = () => {
   };
 
   return (
-    <div className="space-y-5 animate-in fade-in duration-500">
-      <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-sm">
+    <div className="space-y-4 md:space-y-5 animate-in fade-in duration-500 w-full">
+      <div className="bg-white border border-slate-200 rounded-xl p-4 md:p-5 shadow-sm">
         <h3 className="text-sm font-bold text-slate-800 uppercase tracking-wider mb-4 flex items-center gap-2 border-b border-slate-100 pb-3">
           <UserPlus size={16} className="text-slate-900"/> Add New Personnel
         </h3>
@@ -278,22 +277,20 @@ const DirectorStaffManagement = () => {
               </select>
             </div>
 
-            {showExperience ? (
+            {showExperience && (
               <div className="space-y-1.5">
                 <label className="text-[11px] font-semibold text-slate-600 uppercase tracking-wider">Employment Profile</label>
-                <div className="flex items-center gap-4 h-9 px-3 border border-slate-300 rounded bg-slate-50">
+                <div className="flex flex-wrap sm:flex-nowrap items-center gap-3 sm:gap-4 h-auto min-h-[36px] py-1 sm:py-0 px-3 border border-slate-300 rounded bg-slate-50">
                   <label className="flex items-center gap-2 text-xs text-slate-700 cursor-pointer">
                     <input type="radio" name="exp" className="w-3 h-3 text-slate-900" value="Entry-Level" checked={newStaff.experienceType === 'Entry-Level'} onChange={() => setNewStaff({...newStaff, experienceType: 'Entry-Level', previousSchool: ''})} /> 
                     Entry-Level
                   </label>
                   <label className="flex items-center gap-2 text-xs text-slate-700 cursor-pointer">
                     <input type="radio" name="exp" className="w-3 h-3 text-slate-900" value="Industry-Experienced" checked={newStaff.experienceType === 'Industry-Experienced'} onChange={() => setNewStaff({...newStaff, experienceType: 'Industry-Experienced'})} /> 
-                    Industry-Experienced
+                    Experienced
                   </label>
                 </div>
               </div>
-            ) : (
-              <div className="hidden md:block"></div>
             )}
 
             <div className="space-y-1.5">
@@ -346,19 +343,19 @@ const DirectorStaffManagement = () => {
           )}
 
           <div className="flex justify-end pt-3 border-t border-slate-100">
-            <button type="submit" disabled={loading} className="bg-slate-900 text-white font-bold text-xs px-6 h-9 rounded-lg hover:bg-slate-800 transition-colors flex items-center justify-center min-w-[180px] shadow-sm">
+            <button type="submit" disabled={loading} className="w-full sm:w-auto bg-slate-900 text-white font-bold text-xs px-6 h-10 rounded-lg hover:bg-slate-800 transition-colors flex items-center justify-center min-w-[180px] shadow-sm">
               {loading ? <Loader2 size={14} className="animate-spin" /> : "Authorize & Create Account"}
             </button>
           </div>
         </form>
       </div>
 
-      <div className="bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden">
+      <div className="bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden w-full">
         <div className="p-4 border-b border-slate-200 bg-slate-50 flex justify-between items-center">
           <h3 className="text-[11px] font-bold text-slate-800 uppercase tracking-wider">Active Staff & Leadership</h3>
         </div>
-        <div className="overflow-x-auto">
-          <table className="w-full text-sm text-left whitespace-nowrap">
+        <div className="overflow-x-auto w-full">
+          <table className="w-full text-sm text-left whitespace-nowrap min-w-[800px]">
             <thead>
               <tr className="bg-white border-b border-slate-200 text-slate-500 font-bold uppercase text-[10px] tracking-wider">
                 <th className="p-3 pl-4">Personnel Profile</th>
@@ -393,16 +390,16 @@ const DirectorStaffManagement = () => {
                     <div className="mt-0.5 text-slate-500">{staff.phone}</div>
                   </td>
                   <td className="p-3 pr-4 text-right">
-                    <div className="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div className="flex justify-end gap-2 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
                       <button className="text-slate-400 hover:text-slate-900 transition-colors p-1" title="Promote">
-                        <ChevronUp size={14}/>
+                        <ChevronUp size={16}/>
                       </button>
                       <button 
                         onClick={() => handleTerminate(staff._id, staff.name)} 
                         className="text-slate-400 hover:text-rose-600 transition-colors p-1" 
                         title="Terminate"
                       >
-                        <Trash2 size={14}/>
+                        <Trash2 size={16}/>
                       </button>
                     </div>
                   </td>
@@ -434,47 +431,49 @@ const DirectorSystemLogs = () => {
   ];
 
   return (
-    <div className="space-y-5 animate-in fade-in duration-500">
-      <div className="bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden">
+    <div className="space-y-4 md:space-y-5 animate-in fade-in duration-500 w-full">
+      <div className="bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden w-full">
         <div className="p-4 border-b border-slate-100">
-          <h1 className="text-lg font-bold text-slate-900 tracking-tight flex items-center gap-2">
+          <h1 className="text-base md:text-lg font-bold text-slate-900 tracking-tight flex items-center gap-2">
             <Activity className="text-slate-900" size={18} /> System Access Logs
           </h1>
-          <p className="text-xs text-slate-500 mt-1 font-medium">Live tracking of timestamps, user roles, and system logins.</p>
+          <p className="text-[11px] md:text-xs text-slate-500 mt-1 font-medium">Live tracking of timestamps, user roles, and system logins.</p>
         </div>
-        <table className="w-full text-sm text-left">
-          <thead>
-            <tr className="bg-slate-50 border-b border-slate-200 text-slate-500 font-bold uppercase text-[9px] tracking-wider">
-              <th className="p-3 pl-4">User Name & ID</th>
-              <th className="p-3">Authorization Role</th>
-              <th className="p-3"><span className="flex items-center gap-1.5"><Clock size={10}/> Login Timestamp</span></th>
-              <th className="p-3 text-right pr-4">Status</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-slate-100 text-slate-700">
-            {mockLogs.map((log) => (
-              <tr key={log.id} className="hover:bg-slate-50 transition-colors">
-                <td className="p-3 pl-4">
-                  <div className="font-bold text-slate-900 flex items-center gap-2 text-sm">
-                    <LogIn size={14} className="text-slate-400" /> {log.name}
-                  </div>
-                  <div className="text-[11px] font-medium text-slate-500 mt-0.5">{log.email}</div>
-                </td>
-                <td className="p-3">
-                  <span className="text-[9px] font-bold uppercase tracking-wider text-slate-600">
-                    {log.role}
-                  </span>
-                </td>
-                <td className="p-3 font-mono font-medium text-[11px] text-slate-600">{log.time}</td>
-                <td className="p-3 pr-4 text-right">
-                  <span className={`text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md ${log.color}`}>
-                    {log.status}
-                  </span>
-                </td>
+        <div className="overflow-x-auto w-full">
+          <table className="w-full text-sm text-left min-w-[600px]">
+            <thead>
+              <tr className="bg-slate-50 border-b border-slate-200 text-slate-500 font-bold uppercase text-[9px] tracking-wider">
+                <th className="p-3 pl-4">User Name & ID</th>
+                <th className="p-3">Authorization Role</th>
+                <th className="p-3"><span className="flex items-center gap-1.5"><Clock size={10}/> Login Timestamp</span></th>
+                <th className="p-3 text-right pr-4">Status</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody className="divide-y divide-slate-100 text-slate-700">
+              {mockLogs.map((log) => (
+                <tr key={log.id} className="hover:bg-slate-50 transition-colors">
+                  <td className="p-3 pl-4">
+                    <div className="font-bold text-slate-900 flex items-center gap-2 text-sm">
+                      <LogIn size={14} className="text-slate-400" /> {log.name}
+                    </div>
+                    <div className="text-[11px] font-medium text-slate-500 mt-0.5">{log.email}</div>
+                  </td>
+                  <td className="p-3">
+                    <span className="text-[9px] font-bold uppercase tracking-wider text-slate-600">
+                      {log.role}
+                    </span>
+                  </td>
+                  <td className="p-3 font-mono font-medium text-[11px] text-slate-600">{log.time}</td>
+                  <td className="p-3 pr-4 text-right">
+                    <span className={`text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md ${log.color} whitespace-nowrap`}>
+                      {log.status}
+                    </span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );
@@ -484,18 +483,18 @@ const DirectorSystemLogs = () => {
 // 4. BROADCAST NOTICES
 // =========================================================================
 const DirectorNoticesPortal = () => (
-  <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-sm space-y-4 animate-in fade-in">
+  <div className="bg-white border border-slate-200 rounded-xl p-4 md:p-5 shadow-sm space-y-4 animate-in fade-in w-full">
     <div className="border-b border-slate-100 pb-3">
-      <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2">
+      <h3 className="text-base md:text-lg font-bold text-slate-900 flex items-center gap-2">
         <Bell size={16} className="text-slate-900"/> Broadcast Directive Form
       </h3>
-      <p className="text-xs text-slate-500 mt-1 font-medium">Send official notices to specific groups across the institution.</p>
+      <p className="text-[11px] md:text-xs text-slate-500 mt-1 font-medium">Send official notices to specific groups across the institution.</p>
     </div>
     
     <div className="space-y-4 max-w-2xl">
       <div className="space-y-1.5">
         <label className="text-[10px] font-bold uppercase tracking-widest text-slate-500">Target Audience</label>
-        <select className="w-full border border-slate-200 p-2 rounded-lg text-sm bg-slate-50 outline-none focus:border-slate-900 focus:bg-white transition-all font-medium text-slate-700 cursor-pointer">
+        <select className="w-full border border-slate-200 p-2.5 rounded-lg text-sm bg-slate-50 outline-none focus:border-slate-900 focus:bg-white transition-all font-medium text-slate-700 cursor-pointer">
           <option value="all">Institution Wide (Everyone)</option>
           <option value="leadership">Leadership Team (Principals & HODs)</option>
           <option value="faculty">Teaching Faculty Only</option>
@@ -509,7 +508,7 @@ const DirectorNoticesPortal = () => (
          <input 
             type="text" 
             placeholder="e.g. Mandatory Staff Meeting on Friday" 
-            className="w-full border border-slate-200 rounded-lg p-2 text-sm outline-none focus:border-slate-900 focus:bg-white transition-all font-semibold text-slate-900 placeholder:font-normal placeholder:text-slate-400" 
+            className="w-full border border-slate-200 rounded-lg p-2.5 text-sm outline-none focus:border-slate-900 focus:bg-white transition-all font-semibold text-slate-900 placeholder:font-normal placeholder:text-slate-400" 
          />
       </div>
 
@@ -522,7 +521,7 @@ const DirectorNoticesPortal = () => (
       </div>
 
       <div className="pt-2">
-        <button className="bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs uppercase tracking-widest px-6 py-2.5 rounded-lg transition-all shadow-sm">
+        <button className="w-full sm:w-auto bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs uppercase tracking-widest px-6 py-3 rounded-lg transition-all shadow-sm">
           Publish Directive
         </button>
       </div>
@@ -535,7 +534,7 @@ const DirectorNoticesPortal = () => (
 // =========================================================================
 const DirectorDashboard = () => {
   return (
-    <div className="flex-1 w-full p-4 lg:p-6 bg-slate-50 min-h-screen">
+    <div className="flex-1 w-full p-4 lg:p-6 bg-slate-50 min-h-screen overflow-x-hidden">
       <Routes>
         <Route path="director-overview" element={<DirectorHomeOverview />} />
         <Route path="manage-personnel" element={<DirectorStaffManagement />} />

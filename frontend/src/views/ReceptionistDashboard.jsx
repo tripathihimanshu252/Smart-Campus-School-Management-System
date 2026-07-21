@@ -447,4 +447,4 @@ const ReceptionistDashboard = () => {
   );
 };
 
-export default ReceptionistDashboard;reeceptionistdashbaoard.jsx
+export default ReceptionistDashboard;
